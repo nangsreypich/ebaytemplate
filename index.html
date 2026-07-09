@@ -736,255 +736,266 @@
         }
 
 
-        /* spac section css */
-        /* --- BASE RESET & FONT SETUP --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* spac section css */
+/* --- BASE RESET & FONT SETUP --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Cleaner technical font */
-            background: #f8fafc;
-            /* Very light grey background */
-            color: #0f172a;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Cleaner technical font */
+    background: #f8fafc;
+    /* Very light grey background */
+    color: #0f172a;
+}
 
-        /* --- THE MAIN SECTION CONTAINER --- */
-        .specs-section {
-            padding: 20px 20px;
-            width: 100%;
-        }
+/* --- THE MAIN SECTION CONTAINER --- */
+.specs-section {
+    padding: 20px 20px;
+    width: 100%;
+}
 
-        .content-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
 
-        /* --- THE MAIN FLEX CONTAINER --- */
-        .main-container {
-            display: flex;
-            align-items: stretch;
-            /* Make both sides full height */
-            gap: 40px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            /* Important for the dark panel to match height */
-        }
+/* --- THE MAIN FLEX CONTAINER --- */
+.main-container {
+    display: flex;
+    align-items: stretch;
+    /* Make both sides full height */
+    gap: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    /* Important for the dark panel to match height */
+}
 
-        /* --- LEFT SIDE: IMAGE ZONE --- */
-        .image-zone {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 40px;
-            z-index: 1;
-        }
+/* --- LEFT SIDE: IMAGE ZONE --- */
+.image-zone {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px;
+    z-index: 1;
+}
 
-        .image-zone img {
-            max-width: 100%;
-            max-height: 80%;
-            object-fit: contain;
-            z-index: 5;
-            /* Soft ambient shadow beneath the transparent wheels */
-            filter: drop-shadow(0px 25px 15px rgba(0, 0, 0, 0.3));
-        }
+.image-zone img {
+    max-width: 100%;
+    max-height: 80%;
+    object-fit: contain;
+    z-index: 5;
+    /* Soft ambient shadow beneath the transparent wheels */
+    filter: drop-shadow(0px 25px 15px rgba(0, 0, 0, 0.3));
+}
 
-        /* --- Subtle Geometry Shapes --- */
-        .geo-shape-1 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(30, 58, 138, 0.05), transparent 60%);
-            z-index: -1;
-        }
+/* --- Subtle Geometry Shapes --- */
+.geo-shape-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(30, 58, 138, 0.05), transparent 60%);
+    z-index: -1;
+}
 
-        .geo-shape-2 {
-            position: absolute;
-            bottom: -30%;
-            right: -20%;
-            width: 60%;
-            height: 60%;
-            background: linear-gradient(135deg, transparent 40%, rgba(30, 58, 138, 0.08));
-            z-index: -1;
-            border-radius: 50%;
-        }
+.geo-shape-2 {
+    position: absolute;
+    bottom: -30%;
+    right: -20%;
+    width: 60%;
+    height: 60%;
+    background: linear-gradient(135deg, transparent 40%, rgba(30, 58, 138, 0.08));
+    z-index: -1;
+    border-radius: 50%;
+}
 
-        /* --- RIGHT SIDE: DARK SPEC PANEL --- */
-        .spec-panel {
-            flex: 1.5;
-            /* Takes up more room for the data */
-            background: #0f172a;
-            /* Sleek, dark industrial navy slate */
-            color: white;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-        }
+/* --- RIGHT SIDE: DARK SPEC PANEL --- */
+.spec-panel {
+    flex: 1.5;
+    /* Takes up more room for the data */
+    background: #0f172a;
+    /* Sleek, dark industrial navy slate */
+    color: white;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
 
-        /* --- THE SPECS GRID SYSTEM --- */
-        .spec-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            /* 2 columns across */
-            gap: 20px 30px;
-            /* (vertical gap, horizontal gap) */
-        }
+/* --- THE SPECS GRID SYSTEM --- */
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns across */
+    gap: 20px 30px;
+    /* (vertical gap, horizontal gap) */
+}
 
-        /* --- THE SPEC CARD STYLING --- */
-        .spec-card {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 10px 0;
-            /* Optional: very subtle separator lines on the bottom of rows */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
+/* --- THE SPEC CARD STYLING --- */
+.spec-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+    /* Optional: very subtle separator lines on the bottom of rows */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-        .spec-card.highlight .spec-value {
-            color: #e65c00;
-            /* Safety orange for key values like HP */
-        }
+.spec-card.highlight .spec-value {
+    color: #e65c00;
+    /* Safety orange for key values like HP */
+}
 
-        .spec-text {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
+.spec-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
 
-        /* --- THE LABEL (Lighter, smaller, uppercase) --- */
-        .spec-label {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            /* Lighter grey-blue for labels */
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 4px;
-        }
+/* --- THE LABEL (Lighter, smaller, uppercase) --- */
+.spec-label {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    /* Lighter grey-blue for labels */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+}
 
-        /* --- THE VALUE (Large, dark, bold) --- */
-        .spec-value {
-            font-size: 1.3rem;
-            color: white;
-            font-weight: 800;
-            letter-spacing: -0.2px;
-        }
+/* --- THE VALUE (Optimized smaller bold display sizing) --- */
+.spec-value {
+    font-size: 1.15rem;
+    color: white;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+}
 
-        /* --- Spec Icon Placeholder (if needed) --- */
-        .spec-icon {
-            width: 32px;
-            height: 32px;
-            opacity: 0.5;
-            /* Icons are subtle */
-        }
+/* --- Spec Icon Placeholder (if needed) --- */
+.spec-icon {
+    width: 32px;
+    height: 32px;
+    opacity: 0.5;
+    /* Icons are subtle */
+}
 
-        /* --- Origin flag placeholder styling --- */
-        .spec-card.origin .spec-icon {
-            opacity: 1;
-            /* Flags should be full opacity */
-        }
+/* --- Origin flag placeholder styling --- */
+.spec-card.origin .spec-icon {
+    opacity: 1;
+    /* Flags should be full opacity */
+}
 
-        /* --- RESPONSIVE MOBILE FIXES --- */
-        @media (max-width: 900px) {
-            .content-wrapper {
-                padding: 0 15px;
-            }
+/* --- RESPONSIVE MOBILE FIXES --- */
+@media (max-width: 900px) {
+    .content-wrapper {
+        padding: 0 15px;
+    }
 
-            .main-container {
-                flex-direction: column;
-                /* Stacks image on top of panel */
-                gap: 0;
-            }
+    .main-container {
+        flex-direction: column;
+        /* Stacks image on top of panel */
+        gap: 0;
+    }
 
-            .image-zone {
-                padding: 30px;
-                min-height: 280px;
-                /* Reduced container height for mobile */
-            }
+    .image-zone {
+        padding: 30px;
+        min-height: 280px;
+        /* Reduced container height for mobile */
+    }
 
-            .spec-panel {
-                padding: 25px;
-                /* Tighter padding inside the dark block */
-            }
+    .spec-panel {
+        padding: 25px;
+        /* Tighter padding inside the dark block */
+    }
 
-            .spec-grid {
-                grid-template-columns: 1fr;
-                /* Single column layout */
-                gap: 12px 0;
-                /* Tighter vertical gap between items */
-            }
+    /* MAINTAINS THE 2-COLUMN GRID DISPLAY INSTEAD OF DROPPING BELOW */
+    .spec-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px 16px; /* Optimized layout gap for mobile screens */
+    }
 
-            /* Shrunk Card Padding */
-            .spec-card {
-                padding: 6px 0;
-            }
+    /* Shrunk Card Padding */
+    .spec-card {
+        padding: 6px 0;
+        gap: 10px; /* Pulls elements closer together to conserve workspace */
+    }
 
-            /* Smaller Label Text */
-            .spec-label {
-                font-size: 0.75rem;
-                margin-bottom: 2px;
-            }
+    /* Smaller Label Text */
+    .spec-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 2px;
+    }
 
-            /* Smaller Value Text */
-            .spec-value {
-                font-size: 1.1rem;
-            }
+    /* Shrunk Value Text size to prevent line breaking */
+    .spec-value {
+        font-size: 0.95rem;
+    }
 
-            /* Scale down icons proportionally */
-            .spec-icon {
-                width: 24px;
-                height: 24px;
-            }
-        }
+    /* Scale down icons proportionally */
+    .spec-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
 
-        .specs-title {
-            font-size: 2.2rem;
-            color: #0f172a;
-            /* Dark slate instead of plain blue */
-            font-weight: 900;
-            /* Ultra bold */
-            text-align: center;
-            text-transform: uppercase;
-            /* Clean uniform look */
-            letter-spacing: 2px;
-            /* Gives an expansive, modern feel */
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 15px;
-        }
+/* Additional ultra-small device handling to protect column integrity */
+@media (max-width: 480px) {
+    .spec-grid {
+        gap: 10px 8px;
+    }
+    .spec-value {
+        font-size: 0.88rem;
+    }
+}
 
-        /* Subtle accent line matching your orange CTA */
-        .specs-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background-color: #e65c00;
-            /* Safety Orange */
-            border-radius: 2px;
-        }
+.specs-title {
+    font-size: 2.2rem;
+    color: #0f172a;
+    /* Dark slate instead of plain blue */
+    font-weight: 900;
+    /* Ultra bold */
+    text-align: center;
+    text-transform: uppercase;
+    /* Clean uniform look */
+    letter-spacing: 2px;
+    /* Gives an expansive, modern feel */
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
 
-        /* Mobile font adjustment */
-        @media (max-width: 900px) {
-            .specs-title {
-                font-size: 1.5rem;
-                letter-spacing: 1px;
-                margin-bottom: 30px;
-            }
-        }
+/* Subtle accent line matching your orange CTA */
+.specs-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #e65c00;
+    /* Safety Orange */
+    border-radius: 2px;
+}
+
+/* Mobile font adjustment */
+@media (max-width: 900px) {
+    .specs-title {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+    }
+}
 
         /* Feature section style */
         /* --- FEATURES LAYOUT PANEL --- */
