@@ -1,3 +1,4 @@
+
     <div id="typhon-listing">
 <style>
   #typhon-listing, #typhon-listing * { box-sizing: border-box; }
@@ -618,21 +619,17 @@ section {
 }
 
 /* ==========================================================================
-   7. PRODUCT GALLERY — pure CSS auto-playing carousel (14 slides).
-   The original radio-button + <label> click-to-select gallery is removed:
-   eBay's HTML sanitizer strips <input> and interactive <label for> markup,
-   which breaks that kind of gallery and is a common cause of listing
-   preview errors. This version uses only @keyframes animation, so it
-   auto-cycles reliably with zero form elements.
+   7. PRODUCT GALLERY — pure CSS AUTO-ROTATING FADE CAROUSEL (20 slides).
+   REWRITTEN: the previous version used :target (anchor/hash state) plus
+   :has(), a very new CSS4 selector. That combination behaves like a
+   scripted state machine and is very likely what eBay's automated
+   "active content" scanner is pattern-matching as JavaScript, even
+   though no <script> tag exists anywhere in this listing.
+   This version uses only @keyframes/animation — the exact same,
+   long-supported CSS3 technique already used (and already passing
+   eBay's scanner) in the hero slider above. No anchors, no :target,
+   no :has(), no form elements — just old, safe, widely-supported CSS.
    ========================================================================== */
-/* --- GALLERY STYLES --- */
-/* --- TYPHON MACHINERY PREMIUM LIGHT MODE GALLERY --- */
-/* =========================================================================
-   TYPHON MACHINERY PREMIUM LIGHT MODE GALLERY — COMPLETE OVERHAUL
-   ========================================================================= */
-/* =========================================================================
-   TYPHON MACHINERY — 20-IMAGE INTERACTIVE DECK ENGINE (PURE CSS)
-   ========================================================================= */
 .premium-gallery-section {
     padding: 40px 15px;
     background-color: #f8fafc;
@@ -645,125 +642,41 @@ section {
     margin: 0 auto;
 }
 
-/* --- THE STAGE --- */
 .deck-viewport-stage {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 500px;
     overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
 }
 
-/* --- BASE SLIDE STRUCTURE --- */
 .gallery-slide {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    z-index: 1;
-    pointer-events: none;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-/* Base Initialization: Display first slide if no target is active */
-.gallery-slide:first-child {
-    opacity: 1;
-    z-index: 5;
-    pointer-events: auto;
-}
-
-/* Handle state mechanics when any slide is targeted */
-.gallery-slide:target {
-    opacity: 1;
-    z-index: 10;
-    pointer-events: auto;
-}
-
-/* Override first-child visibility if another slide becomes the target */
-.deck-viewport-stage:has(.gallery-slide:target) .gallery-slide:first-child:not(:target) {
+    padding: 30px;
     opacity: 0;
     z-index: 1;
-    pointer-events: none;
+    animation: gallerySlideFade 80s infinite ease-in-out;
 }
 
-/* --- SEAMLESS DECK PANELS (SIDE CARDS) --- */
-.deck-nav-hitbox {
-    position: absolute;
-    top: 10%;
-    width: 32%;
-    height: 80%;
-    background: transparent; /* Removed white background box */
-    border: none; /* Removed heavy borders */
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    opacity: 0.6;
-    text-decoration: none;
-    pointer-events: auto;
-    transition: all 0.4s ease;
-    z-index: 6;
-}
-
-.deck-nav-hitbox img {
+.gallery-slide img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    filter: blur(3px); /* Matching the depth-of-field blur in sample */
-    transition: all 0.3s ease;
+    filter: drop-shadow(0px 15px 15px rgba(0, 0, 0, 0.15));
 }
 
-/* Left Background Card Layout & Skew */
-.prev-card-trigger {
-    left: 4%;
-    justify-content: flex-end;
-    transform: perspective(1200px) rotateY(25deg) rotateZ(-10deg) scale(0.8);
-}
-
-/* Right Background Card Layout & Skew */
-.next-card-trigger {
-    right: 4%;
-    justify-content: flex-start;
-    transform: perspective(1200px) rotateY(-25deg) rotateZ(10deg) scale(0.8);
-}
-
-/* Hover effects for side cards */
-.deck-nav-hitbox:hover {
-    opacity: 0.9;
-}
-.deck-nav-hitbox:hover img {
-    filter: blur(1px);
-}
-
-/* --- MAIN CENTER PRODUCT VIEW --- */
-.main-card-view {
-    width: 44%;
-    height: 85%;
-    background: transparent; /* Removed card frame */
-    border: none; /* Removed blue border line */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    z-index: 12;
-    pointer-events: none;
-    transform: perspective(1200px) rotateZ(-4deg); /* Mimics dynamic slight rotation angle */
-}
-
-.main-card-view img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-/* --- BADGE COUNTER --- */
 .slide-counter {
     position: absolute;
-    bottom: 5%;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(15, 23, 42, 0.85);
@@ -776,18 +689,39 @@ section {
     letter-spacing: 1px;
 }
 
-/* --- EBAY RESPONSIVE LAYOUT PROFILE --- */
+.gallery-slide:nth-child(1)  { opacity: 1; z-index: 2; animation-delay: 0s; }
+.gallery-slide:nth-child(2)  { animation-delay: 4s; }
+.gallery-slide:nth-child(3)  { animation-delay: 8s; }
+.gallery-slide:nth-child(4)  { animation-delay: 12s; }
+.gallery-slide:nth-child(5)  { animation-delay: 16s; }
+.gallery-slide:nth-child(6)  { animation-delay: 20s; }
+.gallery-slide:nth-child(7)  { animation-delay: 24s; }
+.gallery-slide:nth-child(8)  { animation-delay: 28s; }
+.gallery-slide:nth-child(9)  { animation-delay: 32s; }
+.gallery-slide:nth-child(10) { animation-delay: 36s; }
+.gallery-slide:nth-child(11) { animation-delay: 40s; }
+.gallery-slide:nth-child(12) { animation-delay: 44s; }
+.gallery-slide:nth-child(13) { animation-delay: 48s; }
+.gallery-slide:nth-child(14) { animation-delay: 52s; }
+.gallery-slide:nth-child(15) { animation-delay: 56s; }
+.gallery-slide:nth-child(16) { animation-delay: 60s; }
+.gallery-slide:nth-child(17) { animation-delay: 64s; }
+.gallery-slide:nth-child(18) { animation-delay: 68s; }
+.gallery-slide:nth-child(19) { animation-delay: 72s; }
+.gallery-slide:nth-child(20) { animation-delay: 76s; }
+
+@keyframes gallerySlideFade {
+    0%, 4% { opacity: 1; z-index: 2; }
+    6%, 98% { opacity: 0; z-index: 1; }
+    100% { opacity: 1; z-index: 2; }
+}
+
 @media (max-width: 768px) {
     .deck-viewport-stage {
-        aspect-ratio: 4 / 3;
+        height: 320px;
     }
-    .deck-nav-hitbox {
-        display: none; /* Hides side cards on smaller mobile displays to focus on selection */
-    }
-    .main-card-view {
-        width: 85%;
-        height: 85%;
-        transform: none; /* Straightens item for cleaner presentation on mobile devices */
+    .gallery-slide {
+        padding: 15px;
     }
 }
 
@@ -1107,274 +1041,95 @@ section {
         </div>
     </section>
 
-    <!-- GALLERY SECTION -->
-<section class="premium-gallery-section">
-    <div class="gallery-container">
-        <div class="deck-viewport-stage">
+    <!-- GALLERY SECTION — pure @keyframes auto-rotating carousel, no :target/:has(), no anchors -->
+    <section class="premium-gallery-section">
+        <div class="gallery-container">
+            <div class="deck-viewport-stage">
 
-            <div id="slide-1" class="gallery-slide">
-                <a href="#slide-20" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/20.webp" alt="Prev">
-                </a>
-                <a href="#slide-2" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/02.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">1 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/01.webp" alt="Main View 1">
                 </div>
-            </div>
-
-            <div id="slide-2" class="gallery-slide">
-                <a href="#slide-1" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/01.webp" alt="Prev">
-                </a>
-                <a href="#slide-3" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/03.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">2 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/02.webp" alt="Main View 2">
                 </div>
-            </div>
-
-            <div id="slide-3" class="gallery-slide">
-                <a href="#slide-2" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/02.webp" alt="Prev">
-                </a>
-                <a href="#slide-4" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/04.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">3 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/03.webp" alt="Main View 3">
                 </div>
-            </div>
-
-            <div id="slide-4" class="gallery-slide">
-                <a href="#slide-3" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/03.webp" alt="Prev">
-                </a>
-                <a href="#slide-5" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/05.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">4 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/04.webp" alt="Main View 4">
                 </div>
-            </div>
-
-            <div id="slide-5" class="gallery-slide">
-                <a href="#slide-4" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/04.webp" alt="Prev">
-                </a>
-                <a href="#slide-6" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/06.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">5 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/05.webp" alt="Main View 5">
                 </div>
-            </div>
-
-            <div id="slide-6" class="gallery-slide">
-                <a href="#slide-5" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/05.webp" alt="Prev">
-                </a>
-                <a href="#slide-7" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/07.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">6 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/06.webp" alt="Main View 6">
                 </div>
-            </div>
-
-            <div id="slide-7" class="gallery-slide">
-                <a href="#slide-6" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/06.webp" alt="Prev">
-                </a>
-                <a href="#slide-8" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/08.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">7 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/07.webp" alt="Main View 7">
                 </div>
-            </div>
-
-            <div id="slide-8" class="gallery-slide">
-                <a href="#slide-7" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/07.webp" alt="Prev">
-                </a>
-                <a href="#slide-9" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/09.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">8 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/08.webp" alt="Main View 8">
                 </div>
-            </div>
-
-            <div id="slide-9" class="gallery-slide">
-                <a href="#slide-8" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/08.webp" alt="Prev">
-                </a>
-                <a href="#slide-10" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/10.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">9 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/09.webp" alt="Main View 9">
                 </div>
-            </div>
-
-            <div id="slide-10" class="gallery-slide">
-                <a href="#slide-9" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/09.webp" alt="Prev">
-                </a>
-                <a href="#slide-11" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/11.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">10 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/10.webp" alt="Main View 10">
                 </div>
-            </div>
-
-            <div id="slide-11" class="gallery-slide">
-                <a href="#slide-10" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/10.webp" alt="Prev">
-                </a>
-                <a href="#slide-12" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/12.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">11 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/11.webp" alt="Main View 11">
                 </div>
-            </div>
-
-            <div id="slide-12" class="gallery-slide">
-                <a href="#slide-11" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/11.webp" alt="Prev">
-                </a>
-                <a href="#slide-13" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/13.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">12 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/12.webp" alt="Main View 12">
                 </div>
-            </div>
-
-            <div id="slide-13" class="gallery-slide">
-                <a href="#slide-12" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/12.webp" alt="Prev">
-                </a>
-                <a href="#slide-14" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/14.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">13 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/13.webp" alt="Main View 13">
                 </div>
-            </div>
-
-            <div id="slide-14" class="gallery-slide">
-                <a href="#slide-13" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/13.webp" alt="Prev">
-                </a>
-                <a href="#slide-15" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/15.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">14 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/14.webp" alt="Main View 14">
                 </div>
-            </div>
-
-            <div id="slide-15" class="gallery-slide">
-                <a href="#slide-14" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/14.webp" alt="Prev">
-                </a>
-                <a href="#slide-16" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/16.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">15 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/15.webp" alt="Main View 15">
                 </div>
-            </div>
-
-            <div id="slide-16" class="gallery-slide">
-                <a href="#slide-15" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/15.webp" alt="Prev">
-                </a>
-                <a href="#slide-17" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/17.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">16 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/16.webp" alt="Main View 16">
                 </div>
-            </div>
-
-            <div id="slide-17" class="gallery-slide">
-                <a href="#slide-16" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/16.webp" alt="Prev">
-                </a>
-                <a href="#slide-18" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/18.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">17 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/17.webp" alt="Main View 17">
                 </div>
-            </div>
-
-            <div id="slide-18" class="gallery-slide">
-                <a href="#slide-17" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/17.webp" alt="Prev">
-                </a>
-                <a href="#slide-19" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/19.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">18 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/18.webp" alt="Main View 18">
                 </div>
-            </div>
-
-            <div id="slide-19" class="gallery-slide">
-                <a href="#slide-18" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/18.webp" alt="Prev">
-                </a>
-                <a href="#slide-20" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/20.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">19 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/19.webp" alt="Main View 19">
                 </div>
-            </div>
-
-            <div id="slide-20" class="gallery-slide">
-                <a href="#slide-19" class="deck-nav-hitbox prev-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/19.webp" alt="Prev">
-                </a>
-                <a href="#slide-1" class="deck-nav-hitbox next-card-trigger">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/01.webp" alt="Next">
-                </a>
-                <div class="main-card-view">
+                <div class="gallery-slide">
                     <span class="slide-counter">20 / 20</span>
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/20.webp" alt="Main View 20">
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Features Section -->
     <section class="features-section">
