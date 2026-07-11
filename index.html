@@ -1,5 +1,4 @@
-
-    <div id="typhon-listing">
+<div id="typhon-listing">
 <style>
   #typhon-listing, #typhon-listing * { box-sizing: border-box; }
   #typhon-listing {
@@ -9,627 +8,108 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
   }
 
-/* ==========================================================================
-   2. UNIFIED GLOBAL RESET
-   ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* System font stack instead of a Google Fonts @import (no external calls) */
-    font-family: 'Segoe UI', Arial, -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(13, 148, 136, 0.05) 0%, transparent 40%),
-                #f8fafc;
-    color: #1e293b;
-    line-height: 1.7;
-}
-
-section {
-    padding: 30px 5%;
+  /* ---------------- NAV ---------------- */
+  #typhon-listing .nav-wrapper-section {
+    background-color: #ffffff;
+    width: 100%;
+  }
+  #typhon-listing .nav-container-limiter {
     max-width: 1200px;
-    margin: auto;
-}
-
-/* ==========================================================================
-   NAVBAR — pure CSS, no checkbox/hamburger hack.
-   eBay's sanitizer strips <input>/<label>-driven toggles, which silently
-   breaks "hamburger menu" navs. Instead the links simply wrap onto
-   additional rows on small screens, so the nav always renders correctly
-   with zero interactivity required.
-   ========================================================================== */
-.typhon-navbar {
+    margin: 0 auto;
+    width: 100%;
+  }
+  #typhon-listing .vlc-navbar {
+    background-color: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 16px 24px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #0f172a;
-    padding: 16px 5%;
-    gap: 12px;
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
-}
-
-.nav-logo a {
+    gap: 12px 24px;
+    width: 100%;
+  }
+  #typhon-listing .nav-brand {
     font-size: 1.6rem;
-    font-weight: 900;
-    color: #ffffff;
-    text-decoration: none;
-    letter-spacing: 2px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+  }
+#typhon-listing .txt-grad-cyan {
+  /* Safely replaced webkit-clip with a solid, high-visibility deep cyan */
+  color: #165db3;
+  font-weight: bold;
 }
-
-.nav-logo a:hover {
-    color: #e65c00;
-}
-
-.nav-links {
+  /* Links wrap naturally on small screens — no toggle/JS needed */
+  #typhon-listing .nav-links {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px 22px;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.nav-links a {
-    color: #cbd5e1;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: inline-block;
-}
-
-.nav-links a:hover {
-    color: #e65c00;
-}
-
-@media (min-width: 769px) {
-    .nav-links {
-        width: auto;
-        justify-content: flex-end;
-    }
-}
-
-/* ==========================================================================
-   3. PURE CSS HERO SLIDER (7 Slides - 42s Loop)
-   Animation-driven only — no inputs, no JS. This part already worked
-   without forms, so the structure is kept as-is.
-   ========================================================================== */
-.hero-section {
-    position: relative;
-    height: 650px;
-    overflow: hidden;
-    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
-                repeating-linear-gradient(45deg, #e5e7eb 0px, #e5e7eb 1px, transparent 1px, transparent 10px),
-                linear-gradient(to bottom, #f3f4f6, #e5e7eb);
-}
-
-.hero-slide-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 8%;
-    box-sizing: border-box;
-    opacity: 0;
-    z-index: 1;
-    animation: smoothFade 42s infinite ease-in-out;
-}
-
-.hero-slide-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: #1e293b;
-    clip-path: polygon(35% 0%, 100% 0%, 100% 100%, 0% 100%);
-    z-index: -1;
-    pointer-events: none;
-}
-
-.hero-text-block {
-    flex: 1.2;
-    z-index: 5;
-}
-
-.slide {
-    flex: 1.5;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
-}
-
-.badge-new {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 800;
-    color: #e65c00;
-    background: #fff;
-    padding: 6px 16px;
-    border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
-
-.hero-text-block h1 {
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: #0f172a;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
-}
-
-.hero-text-block p {
-    font-size: 1.1rem;
-    color: #475569;
-    line-height: 1.6;
-    max-width: 480px;
-    margin-bottom: 25px;
-}
-
-.btn-primary {
-    display: inline-block;
-    background: #e65c00;
-    color: white;
-    padding: 14px 32px;
-    border-radius: 6px;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    box-shadow: 0 4px 14px rgba(230, 92, 0, 0.3);
-}
-
-.btn-primary:hover {
-    background: #cc5200;
-}
-
-.slide img {
-    max-width: 100%;
-    max-height: 85%;
-    object-fit: contain;
-    filter: drop-shadow(0px 25px 15px rgba(0, 0, 0, 0.35));
-}
-
-.hero-slide-wrapper:nth-child(1) { opacity: 1; z-index: 2; animation-delay: 0s; }
-.hero-slide-wrapper:nth-child(2) { animation-delay: 6s; }
-.hero-slide-wrapper:nth-child(3) { animation-delay: 12s; }
-.hero-slide-wrapper:nth-child(4) { animation-delay: 18s; }
-.hero-slide-wrapper:nth-child(5) { animation-delay: 24s; }
-.hero-slide-wrapper:nth-child(6) { animation-delay: 30s; }
-.hero-slide-wrapper:nth-child(7) { animation-delay: 36s; }
-
-@keyframes smoothFade {
-    0%, 14.28% { opacity: 1; z-index: 2; }
-    16.28%, 98% { opacity: 0; z-index: 1; }
-    100% { opacity: 1; z-index: 2; }
-}
-
-/* ==========================================================================
-   4. TECHNICAL SPECIFICATIONS SECTION
-   ========================================================================== */
-/* --- BASE & SPEC SECTION ROOT --- */
-.specs-section {
-    padding: 40px 20px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0; /* Reduced mobile padding for screen breathing room */
-}
-
-.specs-title {
-    font-size: 2.2rem;
-    color: #0f172a;
-    font-weight: 900;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.specs-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background-color: #f59e0b; /* Fallback accent orange color code */
-    border-radius: 2px;
-}
-
-/* --- MAIN WORKSPACE CONTAINER (FLEX TO BLOCK ON MOBILE) --- */
-.main-container {
-    display: flex;
-    flex-direction: row; /* Horizontal on desktop */
-    align-items: stretch;
-    gap: 0; /* Seamless connection between image white block and dark text block */
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-}
-
-/* --- LEFT SIDE: IMAGE CANVA LAYER --- */
-.image-zone {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 40px;
-    z-index: 1;
-    background-color: #ffffff;
-}
-
-.image-zone img {
-    width: 100%;
-    max-width: 450px; /* Prevents huge scaling gaps on wide monitors */
-    height: auto;
-    object-fit: contain;
-    z-index: 5;
-    filter: drop-shadow(0px 15px 15px rgba(0, 0, 0, 0.15));
-}
-
-.geo-shape-1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(30, 58, 138, 0.04), transparent 60%);
-    z-index: -1;
-}
-
-.geo-shape-2 {
-    position: absolute;
-    bottom: -20%;
-    right: -10%;
-    width: 50%;
-    height: 50%;
-    background: linear-gradient(135deg, transparent 40%, rgba(30, 58, 138, 0.06));
-    z-index: -1;
-    border-radius: 50%;
-}
-
-/* --- RIGHT SIDE: DARK DATA CORE PANEL --- */
-.spec-panel {
-    flex: 1.4;
-    background: #0f172a;
-    color: #ffffff;
-    padding: 45px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.spec-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 Columns on desktop layout configurations */
-    gap: 16px 30px;
-}
-
-.spec-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.spec-card.highlight .spec-value {
-    color: #f59e0b; /* Accent machinery gold */
-}
-
-.spec-text {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.spec-label {
-    font-size: 0.8rem;
-    color: #94a3b8;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 4px;
-}
-
-.spec-value {
-    font-size: 1.1rem;
-    color: #ffffff;
-    font-weight: 800;
-    letter-spacing: -0.2px;
-}
-
-/* =========================================================================
-   REPOSNSIVE MEDIA BREAKPOINTS (eBay Mobile Optimization Layers)
-   ========================================================================= */
-
-/* Medium Devices & Small Tablets */
-@media (max-width: 992px) {
-    .main-container {
-        flex-direction: column; /* Stack image viewport above technical metrics box */
-    }
-
-    .image-zone {
-        padding: 40px 20px;
-        min-height: 300px; /* Guarantees layout structural depth */
-    }
-
-    .image-zone img {
-        max-width: 380px; /* Keeps image looking clean on mid-tier sizes */
-    }
-
-    .spec-panel {
-        padding: 40px 30px;
-    }
-}
-
-/* Smartphones & Small Viewports */
-@media (max-width: 576px) {
-    .specs-title {
-        font-size: 1.6rem;
-        margin-bottom: 25px;
-    }
-
-    .image-zone {
-        min-height: 240px;
-        padding: 30px 15px;
-    }
-
-    .image-zone img {
-        max-width: 280px;
-    }
-
-    .spec-panel {
-        padding: 30px 20px;
-    }
-
-    .spec-grid {
-        grid-template-columns: 1fr; /* Force table entries into a full-width vertical column layout */
-        gap: 5px;
-    }
-
-    .spec-card {
-        padding: 10px 0;
-    }
-
-    .spec-value {
-        font-size: 1rem; /* Balances text readability limits on minimal canvases */
-    }
-}
-/* ==========================================================================
-   5. PREMIUM FEATURES SECTION
-   ========================================================================== */
-.features-section {
-    padding: 40px 20px;
-    background-color: #f8fafc;
-}
-
-.features-container {
-    max-width: 1240px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 35px;
-}
-
-.feature-card {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 14px;
-    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.03);
-    border-top: 4px solid #1e3a8a;
-    display: flex;
-    flex-direction: column;
-}
-
-.feature-card:first-child {
-    border-top-color: #e65c00;
-}
-
-.feature-header {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 22px;
-}
-
-.feature-header h3 {
-    font-size: 1.4rem;
-    color: #0f172a;
-    font-weight: 800;
-    letter-spacing: -0.3px;
-}
-
-.icon-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    flex-shrink: 0;
-}
-
-.icon-wrapper.accent-orange {
-    background-color: rgba(230, 92, 0, 0.08);
-    color: #e65c00;
-}
-
-.icon-wrapper.accent-blue {
-    background-color: rgba(30, 58, 138, 0.08);
-    color: #1e3a8a;
-}
-
-.feature-body {
-    font-size: 0.98rem;
-    color: #475569;
-    line-height: 1.7;
-}
-
-.feature-highlight {
-    color: #0f172a;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 6px;
-}
-
-/* ==========================================================================
-   6. RESPONSIVE HORIZONTAL PRODUCT TRACK (pure CSS overflow-x scroll)
-   ========================================================================== */
-.catalog-section {
-    padding: 40px 20px;
-    background-color: #ffffff;
-}
-
-.catalog-container {
-    max-width: 1240px;
-    margin: 0 auto;
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    padding-bottom: 15px;
-}
-
-.product-card {
-    flex: 0 0 calc(25% - 12px);
-    min-width: 260px;
-    height: 420px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.prod-img-box {
-    background-color: #f6f6f6;
-    height: 240px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    overflow: hidden;
-}
-
-.prod-img-box img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.prod-info {
-    background-color: #ffffff;
-    padding: 14px 16px 16px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.status-badge {
-    align-self: flex-start;
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    padding: 3px 8px;
-    border-radius: 20px;
-    text-transform: uppercase;
-}
-
-.status-badge.alert {
-    background-color: #fef2f2;
-    color: #dc2626;
-    border: 1px solid #fee2e2;
-}
-
-.status-badge.promo {
-    background-color: #eff6ff;
-    color: #1d4ed8;
-    border: 1px solid #dbeafe;
-}
-
-.status-badge.standard {
-    background-color: #f8fafc;
-    color: #475569;
-    border: 1px solid #e2e8f0;
-}
-
-.prod-title {
-  font-size: 0.95rem;
-  color: #111827;
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 4px;
-
-  /* Safe, universally compatible truncation rules */
-  display: block;
-  max-height: 2.8em; /* Exactly 2 lines of text (1.4 line-height * 2) */
-  overflow: hidden; /* Cleanly cuts off any text beyond the second line */
-  text-overflow: ellipsis;
-}
-
-.view-details-btn {
-    margin-top: 4px;
-    align-self: flex-start;
-    display: inline-block;
-    text-align: center;
-    background-color: #0f172a;
-    color: #ffffff;
+    flex: 1 1 auto;
+  }
+  #typhon-listing .nav-links a {
+    color: #334155;
     text-decoration: none;
     font-size: 0.85rem;
-    font-weight: 700;
-    padding: 8px 16px;
-    border-radius: 8px;
-}
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 0;
+  }
+  #typhon-listing .nav-links a:hover { color: #0891b2; }
 
-.view-details-btn:hover {
-    background-color: #e65c00;
-}
+  /* ---------------- HOME / HERO SLIDER ---------------- */
+/* ---------------- HERO / AUTO SLIDESHOW ENGINE ---------------- */
+#typhon-listing .hero-section { width: 100%; max-width: 1100px; margin: 0 auto; padding: 40px 20px; box-sizing: border-box; overflow: hidden; }
+#typhon-listing .slides-window { width: 100%; overflow: hidden; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02); }
+#typhon-listing .slides-track { display: flex; width: 800%; animation: typhonAutoScroll 28s cubic-bezier(0.85, 0, 0.15, 1) infinite; }
+#typhon-listing .slides-track:hover { animation-play-state: paused; }
+#typhon-listing .hero-slide-wrapper { width: 12.5%; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 40px; box-sizing: border-box; }
+#typhon-listing .hero-text-block { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+#typhon-listing .badge-new { font-size: 0.85rem; font-weight: 700; color: #4f46e5; text-transform: uppercase; letter-spacing: 1px; }
+#typhon-listing .hero-text-block h1 { margin: 0; font-size: 2.2rem; font-weight: 900; color: #312e81; line-height: 1.2; text-transform: uppercase; }
+#typhon-listing .hero-text-block p { margin: 0; font-size: 1.05rem; color: #475569; line-height: 1.6; }
+#typhon-listing .btn-primary { display: inline-block; background-color: #312e81; color: #ffffff; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; }
+#typhon-listing .slide { flex: 1; display: flex; align-items: center; justify-content: center; }
+#typhon-listing .slide img { width: 100%; max-width: 420px; height: auto; object-fit: contain; }
 
-/* ==========================================================================
-   7. PRODUCT GALLERY — pure CSS AUTO-ROTATING FADE CAROUSEL (20 slides).
-   REWRITTEN: the previous version used :target (anchor/hash state) plus
-   :has(), a very new CSS4 selector. That combination behaves like a
-   scripted state machine and is very likely what eBay's automated
-   "active content" scanner is pattern-matching as JavaScript, even
-   though no <script> tag exists anywhere in this listing.
-   This version uses only @keyframes/animation — the exact same,
-   long-supported CSS3 technique already used (and already passing
-   eBay's scanner) in the hero slider above. No anchors, no :target,
-   no :has(), no form elements — just old, safe, widely-supported CSS.
-   ========================================================================== */
+/* Infinite Loop Keyframe Definition (Steps smoothly through all 7 elements, pauses, then jumps seamlessly) */
+@keyframes typhonAutoScroll { 0%, 10% { transform: translateX(0); } 14%, 24% { transform: translateX(-12.5%); } 28%, 38% { transform: translateX(-25%); } 42%, 52% { transform: translateX(-37.5%); } 56%, 66% { transform: translateX(-50%); } 70%, 80% { transform: translateX(-62.5%); } 84%, 94% { transform: translateX(-75%); } 100% { transform: translateX(-87.5%); } }
+
+/* Responsive Layout Adjustments */
+@media (max-width: 850px) { #typhon-listing .hero-slide-wrapper { flex-direction: column-reverse; padding: 30px; gap: 24px; } #typhon-listing .hero-text-block { align-items: center; text-align: center; } #typhon-listing .hero-text-block h1 { font-size: 1.7rem; } #typhon-listing .slide img { max-width: 320px; } }
+
+  /* ---------------- SPECS ---------------- */
+/* --- SPECIFICATIONS SECTION UNIQUE LOOK --- */
+/* --- SPECIFICATIONS SECTION UNIQUE LOOK --- */
+/* ---------------- TECHNICAL SPECIFICATIONS ---------------- */
+#typhon-listing .specs-section { padding: 60px 20px; width: 100%; box-sizing: border-box; background-color: #ffffff; }
+#typhon-listing .content-wrapper { max-width: 1100px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+#typhon-listing .specs-title { font-size: 2.4rem; font-weight: 900; text-align: center; margin: 0 auto 45px auto; text-transform: uppercase; letter-spacing: 1.5px; display: flex; flex-direction: column; align-items: center; gap: 12px; color: #312e81; }
+#typhon-listing .specs-title::after { content: ''; display: block; width: 80px; height: 4px; border-radius: 10px; background: linear-gradient(90deg, #4f46e5, #06b6d4); }
+#typhon-listing .main-container { display: flex; gap: 40px; align-items: flex-start; width: 100%; box-sizing: border-box; }
+#typhon-listing .image-zone { flex: 1; position: relative; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 30px; display: flex; align-items: center; justify-content: center; overflow: hidden; aspect-ratio: 1/1; box-sizing: border-box; }
+#typhon-listing .image-zone img { width: 100%; height: 100%; object-fit: contain; z-index: 2; position: relative; }
+#typhon-listing .geo-shape-1 { position: absolute; top: -20%; left: -20%; width: 60%; height: 60%; background: radial-gradient(circle, rgba(79,70,229,0.05) 0%, transparent 70%); border-radius: 50%; }
+#typhon-listing .geo-shape-2 { position: absolute; bottom: -20%; right: -20%; width: 60%; height: 60%; background: radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 70%); border-radius: 50%; }
+#typhon-listing .spec-panel { flex: 1.4; width: 100%; box-sizing: border-box; }
+#typhon-listing .spec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; box-sizing: border-box; }
+#typhon-listing .spec-card { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; box-sizing: border-box; }
+#typhon-listing .spec-text { display: flex; flex-direction: column; gap: 4px; width: 100%; }
+#typhon-listing .spec-label { font-size: 0.78rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+#typhon-listing .spec-value { font-size: 1.05rem; font-weight: 600; color: #1e293b; }
+#typhon-listing .spec-card.highlight { background-color: #eff6ff; border-color: #bfdbfe; }
+#typhon-listing .spec-card.highlight .spec-label { color: #2563eb; }
+#typhon-listing .spec-card.highlight .spec-value { color: #1e3a8a; }
+#typhon-listing .spec-card.origin { background-color: #fff7ed; border-color: #ffedd5; }
+#typhon-listing .spec-card.origin .spec-label { color: #ea580c; }
+#typhon-listing .spec-card.origin .spec-value { color: #7c2d12; }
+
+/* Responsive Grid Scaling for Tablet and Mobile layouts */
+@media (max-width: 950px) { #typhon-listing .main-container { flex-direction: column; gap: 30px; } #typhon-listing .image-zone { width: 100%; max-width: 500px; margin: 0 auto; } #typhon-listing .spec-panel { width: 100%; } }
+@media (max-width: 550px) { #typhon-listing .spec-grid { grid-template-columns: 1fr; gap: 10px; } #typhon-listing .specs-title { font-size: 1.8rem; } #typhon-listing .spec-card { padding: 12px 16px; } }
+
  /* =========================================================================
    TYPHON MACHINERY — LEGACY COMPATIBLE PURE CSS ENGINE (NO JUMPING)
    ========================================================================= */
@@ -884,249 +364,222 @@ section {
     }
 }
 
-/* ==========================================================================
-   8. INDUSTRIAL SYSTEM FOOTER
-   ========================================================================== */
-/* Outer Footer Container */
-.site-footer {
-  color: #4b5563;            /* Deep charcoal gray text for readability */
-  font-family: Arial, sans-serif;
-  padding: 50px 20px 40px 20px;
-  line-height: 1.5;
-}
+/* ---------------- FEATURES ---------------- */
+/* ---------------- FEATURES ---------------- */
+#typhon-listing { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; box-sizing: border-box; }
+#typhon-listing .vlc-features-section { padding: 60px 20px; width: 100%; box-sizing: border-box; }
+#typhon-listing .features-main-title { font-size: 2.4rem; font-weight: 900; text-align: center; margin: 0 auto 45px auto; text-transform: uppercase; letter-spacing: 1.5px; max-width: 1200px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+#typhon-listing .features-txt-grad-title { color: #312e81; font-weight: bold; }
+#typhon-listing .features-main-title::after { content: ''; display: block; width: 80px; height: 4px; border-radius: 10px; background: linear-gradient(90deg, #4f46e5, #06b6d4); }
+#typhon-listing .features-grid-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; box-sizing: border-box; }
+#typhon-listing .feat-grid-card { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 30px 24px; box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03); display: flex; flex-direction: column; align-items: flex-start; gap: 20px; box-sizing: border-box; }
+#typhon-listing .icon-wrapper { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 50px; height: 50px; border-radius: 10px; }
+#typhon-listing .accent-orange { background-color: #fff7ed; color: #ea580c; }
+#typhon-listing .accent-blue { background-color: #eff6ff; color: #2563eb; }
+#typhon-listing .feat-content { display: flex; flex-direction: column; gap: 12px; }
+#typhon-listing .feat-content h3 { margin: 0; font-size: 1.35rem; color: #1e293b; font-weight: 700; }
+#typhon-listing .feature-body { margin: 0; font-size: 0.95rem; line-height: 1.6; color: #475569; }
+#typhon-listing .feature-highlight { color: #0f172a; }
 
-.footer-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+/* Responsive Auto-Collapse for Tablets and Mobile Screens */
+@media (max-width: 1024px) { #typhon-listing .features-grid-container { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { #typhon-listing .features-grid-container { grid-template-columns: 1fr; } #typhon-listing .features-main-title { font-size: 1.8rem; } }
 
-/* Clearfix Hack for Legacy Float Layouts */
-.info-grid-container:after,
-.footer-bottom:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* 4-Column Float Grid (Calculated for 4 columns with spacing) */
-.info-card {
-  width: 22%;
-  float: left;
-  margin-right: 4%;
-  background-color: #ffffff; /* Bright white cards to pop off the light gray bg */
-  padding: 24px 20px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;   /* Soft border defining the cards */
-  /* Box-sizing ensures internal padding doesn't break column widths */
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* Removes right margin on the 4th item so it drops cleanly along the edge */
-.info-grid-container .info-card:last-child {
-  margin-right: 0 !important;
-}
-
-/* Icon Containers */
-.info-icon-box {
-  background-color: #fff7ed; /* Very soft orange tint background */
-  width: 48px;
-  height: 48px;
-  border-radius: 6px;
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-/* Center icons visually inside the legacy box */
-.info-icon-box svg {
-  width: 24px;
-  height: 24px;
-  margin-top: 12px;
-  stroke: #ea580c; /* Construction-grade safety orange */
-}
-
-/* Text & Headings styling */
-.info-card-title {
-  color: #111827; /* Near black for sharp header contrast */
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 12px;
-}
-
-.info-card-body {
-  font-size: 14px;
-  margin: 0;
-  color: #4b5563;
-}
-
-.text-highlight {
-  color: #111827; /* Makes bold lead-in text stand out sharply */
+#typhon-listing .txt-grad-pink {
+  /* Safely replaced webkit-clip with a high-visibility bold pink */
+  color: #be185d;
   font-weight: bold;
 }
+  #typhon-listing .feat-right-block p { color: #475569; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
-/* Bottom Copyright Layout */
-.footer-bottom {
-  border-top: 1px solid #e5e7eb;
-  padding-top: 30px;
-  margin-top: 40px;
-  text-align: center; /* Centers the text alignment */
-}
+  /* ---------------- RELATED ---------------- */
+ /* ---------------- CATALOG / RELATED MACHINERY ---------------- */
+/* ---------------- CATALOG / RELATED MACHINERY ---------------- */
+#typhon-listing .catalog-section { padding: 60px 20px; width: 100%; box-sizing: border-box; }
+#typhon-listing .catalog-main-title { font-size: 2.4rem; font-weight: 900; text-align: center; margin: 0 auto 45px auto; text-transform: uppercase; letter-spacing: 1.5px; max-width: 1100px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+#typhon-listing .catalog-txt-title { color: #312e81; font-weight: bold; }
+#typhon-listing .catalog-main-title::after { content: ''; display: block; width: 80px; height: 4px; border-radius: 10px; background: linear-gradient(90deg, #4f46e5, #06b6d4); }
+#typhon-listing .catalog-grid-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%; box-sizing: border-box; }
+#typhon-listing .product-card { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03); display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
+#typhon-listing .prod-img-box { width: 100%; aspect-ratio: 4/3; background-color: #ffffff; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid #e2e8f0; padding: 10px; box-sizing: border-box; }
+#typhon-listing .prod-img-box img { width: 100%; height: 100%; object-fit: contain; }
+#typhon-listing .prod-info { padding: 14px; display: flex; flex-direction: column; flex-grow: 1; gap: 10px; align-items: flex-start; }
+#typhon-listing .status-badge { font-size: 0.7rem; font-weight: 700; padding: 4px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+#typhon-listing .status-badge.alert { background-color: #fef2f2; color: #ef4444; }
+#typhon-listing .status-badge.promo { background-color: #f0fdf4; color: #22c55e; }
+#typhon-listing .status-badge.standard { background-color: #f8fafc; color: #64748b; }
+#typhon-listing .prod-title { margin: 0; font-size: 0.88rem; color: #1e293b; font-weight: 600; line-height: 1.4; flex-grow: 1; min-height: 3.8em; max-height: 3.8em; overflow: hidden; display: block; }
+#typhon-listing .view-details-btn { display: inline-block; width: 100%; text-align: center; background-color: #312e81; color: #ffffff; padding: 10px 12px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; box-sizing: border-box; transition: background 0.2s ease; }
 
-.footer-copyright {
-  font-size: 14px;
-  color: #6b7280;
-  display: block;
-}
-
-/* ==========================================================================
-   Responsive Multi-Device Breakpoints
-   ========================================================================== */
-
-/* Tablet (Changes grid from 4 columns to 2x2 layout) */
-@media screen and (max-width: 992px) {
-  .info-card {
-    width: 48%;
-    margin-right: 4%;
-    margin-bottom: 20px;
+/* Responsive Grid Scaling rules */
+@media (max-width: 1120px) { #typhon-listing .catalog-grid-container { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 850px) { #typhon-listing .catalog-grid-container { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 550px) { #typhon-listing .catalog-grid-container { grid-template-columns: 1fr; gap: 16px; } #typhon-listing .catalog-main-title { font-size: 1.8rem; } }
+  /* ---------------- CONTACT / FOOTER ---------------- */
+  #typhon-listing .vlc-contact-section {
+    padding: 60px 20px; width: 100%;
   }
-  .info-grid-container .info-card:nth-child(2n) {
-    margin-right: 0 !important;
+  #typhon-listing .info-panel {
+    max-width: 1200px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0;
+    border-radius: 24px; padding: 45px 35px; box-shadow: 0 10px 35px rgba(15, 23, 42, 0.03); text-align: center;
   }
+#typhon-listing .contact-txt-grad-title {
+  font-size: 1.8rem; 
+  font-weight: 800; 
+  margin: 0 0 12px 0; 
+  letter-spacing: 0.5px; 
+  text-transform: uppercase;
+  /* Safely replaced webkit-clip with a vibrant, high-visibility brand blue */
+  color: #2563eb;
 }
+  #typhon-listing .contact-subtitle { color: #475569; font-size: 0.95rem; line-height: 1.6; max-width: 680px; margin: 0 auto 40px auto; }
+  #typhon-listing .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; }
+  #typhon-listing .info-box { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px 20px; text-align: left; }
+  #typhon-listing .info-box:hover { background-color: #ffffff; border-color: #06b6d4; }
+  #typhon-listing .info-box-title { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px; }
+  #typhon-listing .info-box-desc { font-size: 0.88rem; color: #475569; line-height: 1.6; margin: 0; }
 
-/* Mobile Devices (Stacks all cards horizontally 100% wide) */
-@media screen and (max-width: 600px) {
-  .info-card {
-    width: 100%;
-    margin-right: 0 !important;
-    margin-bottom: 20px;
+.site-footer { background-color: #0f172a; padding: 40px 20px 20px; border-top: 1px solid #1e293b; font-family: system-ui, sans-serif; }
+.footer-wrapper { max-width: 1200px; margin: 0 auto; }
+.info-grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px; }
+.info-card-title { color: #f8fafc; font-size: 1.1rem; margin: 0 0 12px; font-weight: 600; }
+.info-card-body { color: #94a3b8; font-size: 0.875rem; line-height: 1.6; margin: 0; }
+.text-highlight { color: #e2e8f0; font-weight: 600; }
+.footer-bottom { text-align: center; border-top: 1px solid #1e293b; padding-top: 20px; }
+.footer-bottom div { color: #64748b; font-size: 0.85rem; letter-spacing: 0.5px; margin: 0; line-height: 1.5; }
+
+  @media (max-width: 900px) {
+    #typhon-listing .info-panel { padding: 35px 20px; }
+    #typhon-listing .contact-txt-grad-title { font-size: 1.6rem; }
+    #typhon-listing .info-grid { gap: 16px; }
   }
-}
-    </style>
+  @media (max-width: 768px) {
+    #typhon-listing .vlc-contact-section { padding: 45px 15px; }
+    #typhon-listing .info-grid { grid-template-columns: 1fr; gap: 16px; }
+    #typhon-listing .info-box { padding: 20px; }
+  }
+  
+</style>
 
     <!-- Navigation Menu (plain flex-wrap, no form-element toggle) -->
-    <header class="typhon-navbar">
-        <div class="nav-logo">
-            <a href="#home">MINIEXCA</a>
+      <section class="nav-wrapper-section">
+    <div class="nav-container-limiter">
+      <nav class="vlc-navbar">
+        <div class="nav-brand"><span class="txt-grad-cyan">MINIEXCA</span></div>
+        <div class="nav-links">
+          <a href="https://www.ebay.com/str/miniexca" target="_blank" rel="noopener noreferrer">Home</a>
+          <a href="https://www.ebay.com/str/miniexca?_tab=sales" target="_blank" rel="noopener noreferrer">Sales</a>
+          <a href="https://www.ebay.com/str/miniexca?_tab=about" target="_blank" rel="noopener noreferrer">About</a>
+          <a href="https://www.ebay.com/str/miniexca?_tab=feedback" target="_blank" rel="noopener noreferrer">Feedback</a>
+          <a href="https://signin.ebay.com/ws/eBayISAPI.dll?SignIn" target="_blank" rel="noopener noreferrer">Contact</a>
         </div>
-        <ul class="nav-links">
-            <li><a href="https://www.ebay.com/str/miniexca" target="_blank">Home</a></li>
-            <li><a href="https://www.ebay.com/str/miniexca?_tab=sales" target="_blank">Sales</a></li>
-            <li><a href="https://www.ebay.com/str/miniexca?_tab=about" target="_blank">About</a></li>
-            <li><a href="https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&ru=https%3A%2F%2Fwww.ebay.com%2Fcnt%2FintermediatedFAQ%3Frequested%3Dminiexca&sgfl=sm&smuid=0e423750-7c04-11f1-b4fe-83710a13e3f9" target="_blank">Contact</a></li>
-            <li><a href="https://www.ebay.com/str/miniexca?_tab=feedback" target="_blank">Feedback</a></li>
-        </ul>
-    </header>
+      </nav>
+    </div>
+  </section>
 
     <div id="top"></div>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
+        <div class="slides-window">
+            <div class="slides-track">
 
-        <div class="hero-slide-wrapper">
-            <div class="hero-text-block">
-                <span class="badge-new">[ Heavy Machinery ]</span>
-                <h1>TYPHON SKOOP Wheel Loader</h1>
-                <p>USA Edition. 25HP Kubota Engine, 1-Ton Load Capacity. Plunger Pump, Extended Auxiliary Arm. Bucket
-                    &amp; Grapple Included.</p>
-                <a href="https://www.ebay.com/itm/137470534756?itmmeta=01KX2K39DHGJ2T63HJP4S0DRXC&hash=item2001e1e464:g:32oAAeSwoYxqRNp5"
-                    class="btn-primary" target="_blank">View Product</a>
-            </div>
-            <div class="slide">
-                <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/01.webp"
-                    alt="TYPHON SKOOP Wheel Loader">
-            </div>
-        </div>
+                <div class="hero-slide-wrapper">
+                    <div class="hero-text-block">
+                        <span class="badge-new">[ Heavy Machinery ]</span>
+                        <h1>TYPHON SKOOP Wheel Loader</h1>
+                        <p>USA Edition. 25HP Kubota Engine, 1-Ton Load Capacity. Plunger Pump, Extended Auxiliary Arm. Bucket &amp; Grapple Included.</p>
+                        <a href="https://www.ebay.com/itm/137470534756?itmmeta=01KX2K39DHGJ2T63HJP4S0DRXC&hash=item2001e1e464:g:32oAAeSwoYxqRNp5" class="btn-primary" target="_blank">View Product</a>
+                    </div>
+                    <div class="slide">
+                        <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/01.webp" alt="TYPHON SKOOP Wheel Loader">
+                    </div>
+                </div>
 
-        <div class="hero-slide-wrapper">
-            <div class="hero-text-block">
-                <span class="badge-new">[ Brand New Excavator ]</span>
-                <h1>TYPHON TERROR XX</h1>
-                <p>4000lb Mini Excavator with Kubota D902 Engine. Built-in Hydraulic Thumb, 7.9 GPM hydraulic flow, dual
-                    pumps &amp; oil cooler.</p>
-                <a href="https://www.ebay.com/itm/137470497677?itmmeta=01KX2K39DHZC10DKNN5TADNZZT&hash=item2001e1538d:g:6p8AAeSw40VqRNwQ"
-                    class="btn-primary" target="_blank">View Product</a>
-            </div>
-            <div class="slide">
-                <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/02.webp"
-                    alt="TYPHON TERROR XX Mini Excavator">
-            </div>
-        </div>
+                <div class="hero-slide-wrapper">
+                    <div class="hero-text-block">
+                        <span class="badge-new">[ Brand New Excavator ]</span>
+                        <h1>TYPHON TERROR XX</h1>
+                        <p>4000lb Mini Excavator with Kubota D902 Engine. Built-in Hydraulic Thumb, 7.9 GPM hydraulic flow, dual pumps &amp; oil cooler.</p>
+                        <a href="https://www.ebay.com/itm/137470497677?itmmeta=01KX2K39DHZC10DKNN5TADNZZT&hash=item2001e1538d:g:6p8AAeSw40VqRNwQ" class="btn-primary" target="_blank">View Product</a>
+                    </div>
+                    <div class="slide">
+                        <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/02.webp" alt="TYPHON TERROR XX Mini Excavator">
+                    </div>
+                </div>
 
-        <div class="hero-slide-wrapper">
-            <div class="hero-text-block">
-                <span class="badge-new">[ Enclosed Cabin ]</span>
-                <h1>TYPHON TERROR XVII Cabin</h1>
-                <p>2025 Edition 4000 lb Excavator with Rubber Tracks &amp; Kubota D902 engine. Equipped with AC/Heater,
-                    Swing Boom, and Free Thumb Clip.</p>
-                <a href="https://www.ebay.com/itm/135092270718?epid=11075537486&itmmeta=01KX2K39DH7QQ570WGD630MQX9&hash=item1f7420767e:g:Q~kAAOSwDMFoXRp5"
-                    class="btn-primary" target="_blank">View Product</a>
-            </div>
-            <div class="slide">
-                <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/03.webp"
-                    alt="TYPHON TERROR XVII Cabin">
-            </div>
-        </div>
+                <div class="hero-slide-wrapper">
+                    <div class="hero-text-block">
+                        <span class="badge-new">[ Enclosed Cabin ]</span>
+                        <h1>TYPHON TERROR XVII Cabin</h1>
+                        <p>2025 Edition 4000 lb Excavator with Rubber Tracks &amp; Kubota D902 engine. Equipped with AC/Heater, Swing Boom, and Free Thumb Clip.</p>
+                        <a href="https://www.ebay.com/itm/135092270718?epid=11075537486&itmmeta=01KX2K39DH7QQ570WGD630MQX9&hash=item1f7420767e:g:Q~kAAOSwDMFoXRp5" class="btn-primary" target="_blank">View Product</a>
+                    </div>
+                    <div class="slide">
+                        <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/03.webp" alt="TYPHON TERROR XVII Cabin">
+                    </div>
+                </div>
 
-        <div class="hero-slide-wrapper">
-            <div class="hero-text-block">
-                <span class="badge-new">[ Next-Gen Performance ]</span>
-                <h1>TYPHON TERROR XVIII</h1>
-                <p>2026 Edition 4000 lb Mini Excavator. Durable Rubber Tracks, high-efficiency Kubota Diesel Engine
-                    built for intense job sites.</p>
-                <a href="https://www.ebay.com/itm/135617896618?epid=11079164047&itmmeta=01KX2K39DH63RZRDSZ6M618GYH&hash=item1f9374e0aa:g:zB0AAOSwjDdn0REX"
-                    class="btn-primary" target="_blank">View Product</a>
-            </div>
-            <div class="slide">
-                <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/04.webp"
-                    alt="TYPHON TERROR XVIII Mini Excavator">
-            </div>
-        </div>
+                <div class="hero-slide-wrapper">
+                    <div class="hero-text-block">
+                        <span class="badge-new">[ Next-Gen Performance ]</span>
+                        <h1>TYPHON TERROR XVIII</h1>
+                        <p>2026 Edition 4000 lb Mini Excavator. Durable Rubber Tracks, high-efficiency Kubota Diesel Engine built for intense job sites.</p>
+                        <a href="https://www.ebay.com/itm/135617896618?epid=11079164047&itmmeta=01KX2K39DH63RZRDSZ6M618GYH&hash=item1f9374e0aa:g:zB0AAOSwjDdn0REX" class="btn-primary" target="_blank">View Product</a>
+                    </div>
+                    <div class="slide">
+                        <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/04.webp" alt="TYPHON TERROR XVIII Mini Excavator">
+                    </div>
+                </div>
 
-        <div class="hero-slide-wrapper">
-            <div class="hero-text-block">
-                <span class="badge-new">[ Advanced Hydraulics ]</span>
-                <h1>TYPHON TERROR XX Pro</h1>
-                <p>4000lb Excavator featuring Double Auxiliary Valves, Swing Boom, 0.04cbm bucket, and 20.4 HP @ 3,600
-                    RPM Kubota D902 engine.</p>
-                <a href="https://www.ebay.com/itm/137470531734?epid=14078693373&itmmeta=01KX2K39DHHR5SKRKSH59YK6J3&hash=item2001e1d896:g:UHcAAeSwBLNqRN1K"
-                    class="btn-primary" target="_blank">View Product</a>
-            </div>
-            <div class="slide">
-                <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/05.webp"
-                    alt="TYPHON TERROR XX Double Valve">
-            </div>
-        </div>
+                <div class="hero-slide-wrapper">
+                    <div class="hero-text-block">
+                        <span class="badge-new">[ Advanced Hydraulics ]</span>
+                        <h1>TYPHON TERROR XX Pro</h1>
+                        <p>4000lb Excavator featuring Double Auxiliary Valves, Swing Boom, 0.04cbm bucket, and 20.4 HP @ 3,600 RPM Kubota D902 engine.</p>
+                        <a href="https://www.ebay.com/itm/137470531734?epid=14078693373&itmmeta=01KX2K39DHHR5SKRKSH59YK6J3&hash=item2001e1d896:g:UHcAAeSwBLNqRN1K" class="btn-primary" target="_blank">View Product</a>
+                    </div>
+                    <div class="slide">
+                        <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/05.webp" alt="TYPHON TERROR XX Double Valve">
+                    </div>
+                </div>
 
-        <div class="hero-slide-wrapper">
-            <div class="hero-text-block">
-                <span class="badge-new">[ 2.5 Ton Heavy Duty ]</span>
-                <h1>NEW TERROR X2</h1>
-                <p>2.5 Ton Trench Digger Excavator packed with a Kubota V1505 Diesel Engine. High performance Swing Boom
-                    and Retractable Tracks.</p>
-                <a href="https://www.ebay.com/itm/135041296172?itmmeta=01KX2K39DH4MN32M08Y05KZ6X0&hash=item1f7116a72c:g:qLIAAOSwaIZoNUoOa"
-                    class="btn-primary" target="_blank">View Product</a>
-            </div>
-            <div class="slide">
-                <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/06.webp"
-                    alt="NEW TERROR X2 Mini Excavator">
-            </div>
-        </div>
+                <div class="hero-slide-wrapper">
+                    <div class="hero-text-block">
+                        <span class="badge-new">[ 2.5 Ton Heavy Duty ]</span>
+                        <h1>NEW TERROR X2</h1>
+                        <p>2.5 Ton Trench Digger Excavator packed with a Kubota V1505 Diesel Engine. High performance Swing Boom and Retractable Tracks.</p>
+                        <a href="https://www.ebay.com/itm/135041296172?itmmeta=01KX2K39DH4MN32M08Y05KZ6X0&hash=item1f7116a72c:g:qLIAAOSwaIZoNUoOa" class="btn-primary" target="_blank">View Product</a>
+                    </div>
+                    <div class="slide">
+                        <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/06.webp" alt="NEW TERROR X2 Mini Excavator">
+                    </div>
+                </div>
 
-        <div class="hero-slide-wrapper">
-            <div class="hero-text-block">
-                <span class="badge-new">[ Compact Maneuverability ]</span>
-                <h1>TYPHON TERROR High-Output</h1>
-                <p>Optimized 4000lb configuration engineered with dynamic balancing, rubber tracking, and rapid attach
-                    capabilities.</p>
-                <a href="https://www.ebay.com/itm/137434500189?itmmeta=01KX2K8HFZXY2SKWKK2ZR9MG04&hash=item1fffbc0c5d:g:TtAAAeSwLpRqMiGl"
-                    class="btn-primary" target="_blank">View Product</a>
-            </div>
-            <div class="slide">
-                <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/07.webp"
-                    alt="TYPHON TERROR Compact">
+                <div class="hero-slide-wrapper">
+                    <div class="hero-text-block">
+                        <span class="badge-new">[ Compact Maneuverability ]</span>
+                        <h1>TYPHON TERROR High-Output</h1>
+                        <p>Optimized 4000lb configuration engineered with dynamic balancing, rubber tracking, and rapid attach capabilities.</p>
+                        <a href="https://www.ebay.com/itm/137470534756?itmmeta=01KX2K39DHGJ2T63HJP4S0DRXC&hash=item2001e1e464:g:32oAAeSwoYxqRNp5" class="btn-primary" target="_blank">View Product</a>
+                    </div>
+                    <div class="slide">
+                        <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/07.webp" alt="TYPHON TERROR Compact">
+                    </div>
+                </div>
+
+                <div class="hero-slide-wrapper">
+                    <div class="hero-text-block">
+                        <span class="badge-new">[ Heavy Machinery ]</span>
+                        <h1>TYPHON SKOOP Wheel Loader</h1>
+                        <p>USA Edition. 25HP Kubota Engine, 1-Ton Load Capacity. Plunger Pump, Extended Auxiliary Arm. Bucket &amp; Grapple Included.</p>
+                        <a href="https://www.ebay.com/itm/137470534756?itmmeta=01KX2K39DHGJ2T63HJP4S0DRXC&hash=item2001e1e464:g:32oAAeSwoYxqRNp5" class="btn-primary" target="_blank">View Product</a>
+                    </div>
+                    <div class="slide">
+                        <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/01.webp" alt="TYPHON SKOOP Wheel Loader">
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1411,105 +864,86 @@ section {
 </section>
 
     <!-- Features Section -->
-    <section class="features-section">
-        <h2 class="specs-title">Product Features</h2>
-        <div class="features-container">
+ 
+    <section class="vlc-features-section">
+        <h2 class="features-main-title">
+            <span class="features-txt-grad-title">Product Features</span>
+        </h2>
+        
+        <div class="features-grid-container">
 
-            <div class="feature-card">
-                <div class="feature-header">
-                    <div class="icon-wrapper accent-orange">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                        </svg>
-                    </div>
+            <div class="feat-grid-card">
+                <div class="icon-wrapper accent-orange">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
+                </div>
+                <div class="feat-content">
                     <h3>High-Torque</h3>
+                    <p class="feature-body"><strong class="feature-highlight">Engineered with an ultra-powerful engine</strong> that delivers exceptional torque over long operating intervals under dense clay conditions.</p>
                 </div>
-                <p class="feature-body">
-                    <strong class="feature-highlight">Engineered with an ultra-powerful engine</strong> that delivers
-                    exceptional torque over long operating intervals. This ensures your operators maintain maximum
-                    digging force, structural breakout stability, and superior lifting capacities even under the most
-                    demanding site environments and dense clay conditions.
-                </p>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-header">
-                    <div class="icon-wrapper accent-blue">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        </svg>
-                    </div>
+            <div class="feat-grid-card">
+                <div class="icon-wrapper accent-blue">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+                </div>
+                <div class="feat-content">
                     <h3>Safety Certified</h3>
+                    <p class="feature-body"><strong class="feature-highlight">Maximize on-site productivity safely</strong> with fully certified overhead guard protection setups and structural frameworks.</p>
                 </div>
-                <p class="feature-body">
-                    <strong class="feature-highlight">Maximize on-site productivity safely</strong> with our fully
-                    certified overhead guard protection setups and advanced quick-attach structural coupler frameworks.
-                    Designed for lightning-fast tool changes, this mechanism allows field operators to pivot smoothly
-                    between heavy tasks without risking crew downtime.
-                </p>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-header">
-                    <div class="icon-wrapper accent-blue">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                            <path d="M9 9h6v6H9z" />
-                        </svg>
-                    </div>
+            <div class="feat-grid-card">
+                <div class="icon-wrapper accent-blue">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><path d="M9 9h6v6H9z" /></svg>
+                </div>
+                <div class="feat-content">
                     <h3>Quick-Attach</h3>
+                    <p class="feature-body"><strong class="feature-highlight">Optimized for compact urban jobsites</strong> where maneuvering workspace parameters are strictly limited for hassle-free travel.</p>
                 </div>
-                <p class="feature-body">
-                    <strong class="feature-highlight">Optimized for compact urban jobsites</strong> where maneuvering
-                    workspace parameters are strictly limited. This nimble infrastructure delivers a reduced overall
-                    physical operating footprint without compromising structural force or hydraulic lifting power,
-                    allowing hassle-free travel paths.
-                </p>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-header">
-                    <div class="icon-wrapper accent-blue">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                        </svg>
-                    </div>
+            <div class="feat-grid-card">
+                <div class="icon-wrapper accent-blue">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+                </div>
+                <div class="feat-content">
                     <h3>Hydraulic System</h3>
+                    <p class="feature-body"><strong class="feature-highlight">Equipped with 3-Pump & 3-Valve arrays</strong> engineered to maximize fluid dynamics, track chassis mobilization, and precise boom control.</p>
                 </div>
-                <p class="feature-body">
-                    <strong class="feature-highlight">Equipped with custom 3-Pump & 3-Valve arrays</strong> engineered
-                    to maximize internal fluid dynamics. Out of the three mechanical pumps, the primary front-facing
-                    dual circuits actively govern overall track chassis mobilization, while the isolated secondary
-                    configuration delegates precise auxiliary boom behavior.
-                </p>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-header">
-                    <div class="icon-wrapper accent-orange">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="3" />
-                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                        </svg>
-                    </div>
-                    <h3>Heavy-Duty Engineering</h3>
+            <div class="feat-grid-card">
+                <div class="icon-wrapper accent-orange">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg>
                 </div>
-                <p class="feature-body">
-                    <strong class="feature-highlight">Built with structural high-tensile reinforced steel plates</strong>
-                    meant to survive intense torsional friction and structural stress over thousands
-                    of hours of rigorous continuous deployment. Every load-bearing hinge node point incorporates
-                    oversized accessible grease fittings to ensure effortless field servicing and maintenance workflows.
-                </p>
+                <div class="feat-content">
+                    <h3>Heavy-Duty Engineering</h3>
+                    <p class="feature-body"><strong class="feature-highlight">Built with high-tensile steel plates</strong> to survive intense torsional friction over thousands of hours of rigorous continuous deployment.</p>
+                </div>
+            </div>
+
+            <div class="feat-grid-card">
+                <div class="icon-wrapper accent-orange">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /><circle cx="12" cy="12" r="10"/></svg>
+                </div>
+                <div class="feat-content">
+                    <h3>Eco-Fuel Efficiency</h3>
+                    <p class="feature-body"><strong class="feature-highlight">Advanced thermal auto-idle intelligence</strong> lowers total hourly fuel consumption metrics during operational transitions without losing hydraulic pressure.</p>
+                </div>
             </div>
 
         </div>
     </section>
 
     <!-- Related Machinery -->
+    <!-- Related Machinery Section -->
     <section class="catalog-section">
-        <h2 class="specs-title">Related Machinery</h2>
-        <div class="catalog-container">
+        <h2 class="catalog-main-title">
+            <span class="catalog-txt-title">Related Machinery</span>
+        </h2>
+        <div class="catalog-grid-container">
 
+            <!-- Card 1 -->
             <div class="product-card">
                 <div class="prod-img-box">
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/01.webp" alt="Typhon Terror XVIII">
@@ -1521,6 +955,7 @@ section {
                 </div>
             </div>
 
+            <!-- Card 2 -->
             <div class="product-card">
                 <div class="prod-img-box">
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/02.webp" alt="Typhon Terror XX">
@@ -1532,6 +967,7 @@ section {
                 </div>
             </div>
 
+            <!-- Card 3 -->
             <div class="product-card">
                 <div class="prod-img-box">
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/03.webp" alt="Typhon Terror X">
@@ -1543,6 +979,7 @@ section {
                 </div>
             </div>
 
+            <!-- Card 4 -->
             <div class="product-card">
                 <div class="prod-img-box">
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/04.webp" alt="PW18C Mini Excavator">
@@ -1554,6 +991,7 @@ section {
                 </div>
             </div>
 
+            <!-- Card 5 -->
             <div class="product-card">
                 <div class="prod-img-box">
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/05.webp" alt="Typhon Terror Heavy">
@@ -1565,6 +1003,7 @@ section {
                 </div>
             </div>
 
+            <!-- Card 6 -->
             <div class="product-card">
                 <div class="prod-img-box">
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/06.webp" alt="Skoop X100 Articulated">
@@ -1576,6 +1015,7 @@ section {
                 </div>
             </div>
 
+            <!-- Card 7 -->
             <div class="product-card">
                 <div class="prod-img-box">
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/07.webp" alt="Typhon Vigor Loader">
@@ -1587,6 +1027,7 @@ section {
                 </div>
             </div>
 
+            <!-- Card 8 -->
             <div class="product-card">
                 <div class="prod-img-box">
                     <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/08.webp" alt="Stomp X1300 Multi">
@@ -1595,72 +1036,6 @@ section {
                     <span class="status-badge alert">LOW STOCK</span>
                     <h3 class="prod-title">TYPHON STOMP Pallet Fork Compact Series Attachment for Mini Skid Steer Loaders</h3>
                     <a href="https://www.ebay.com/itm/227364298901?itmmeta=01KX2FF4ZVCXY2PDA2HABC8GA8&hash=item34eff7e095:g:cVQAAeSw779qGlRT" class="view-details-btn" target="_blank">View Details</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="prod-img-box">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/09.webp" alt="Typhon Rhino Pro">
-                </div>
-                <div class="prod-info">
-                    <span class="status-badge promo">BEST VALUE</span>
-                    <h3 class="prod-title">TYPHON STOMP Hydraulic Earth Auger Attachment for Compact Skid Steer Loader</h3>
-                    <a href="https://www.ebay.com/itm/227366808993?itmmeta=01KX2FFZZ1JZ5STVHPR7X2XPK8&hash=item34f01e2da1:g:HTsAAeSwB-1qHN5D" class="view-details-btn" target="_blank">View Details</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="prod-img-box">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/10.webp" alt="Skoop Industrial Lifter">
-                </div>
-                <div class="prod-info">
-                    <span class="status-badge standard">POPULAR</span>
-                    <h3 class="prod-title">TYPHON STOMP Rotary Tiller Attachment for Mini Skid Steer Loader Soil Cultivator</h3>
-                    <a href="https://www.ebay.com/itm/227366858695?itmmeta=01KX2FGMSV23F4PFC3CRFH6AVN&hash=item34f01eefc7:g:WioAAeSwlRRqHOdr" class="view-details-btn" target="_blank">View Details</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="prod-img-box">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/11.webp" alt="Skoop Industrial Lifter">
-                </div>
-                <div class="prod-info">
-                    <span class="status-badge standard">POPULAR</span>
-                    <h3 class="prod-title">STOMP Snow Blower Attachment for Mini Skid Steer Loader Hydraulic Snow Thrower</h3>
-                    <a href="https://www.ebay.com/itm/227366863192?itmmeta=01KX2FHW8H1SWEYM92TEB3F092&hash=item34f01f0158:g:Rc0AAeSwD4RqHOlO" class="view-details-btn" target="_blank">View Details</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="prod-img-box">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/12.webp" alt="Skoop Industrial Lifter">
-                </div>
-                <div class="prod-info">
-                    <span class="status-badge standard">POPULAR</span>
-                    <h3 class="prod-title">TYPHON Rock Bucket Attachment for STOMP Mini Skid Steer Loader Screening Bucket</h3>
-                    <a href="https://www.ebay.com/itm/227366928655?itmmeta=01KX2FJJES0CGZFT4H5BXTF2D4&hash=item34f020010f:g:2-UAAeSwn6dqHPv1" class="view-details-btn" target="_blank">View Details</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="prod-img-box">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/13.webp" alt="Skoop Industrial Lifter">
-                </div>
-                <div class="prod-info">
-                    <span class="status-badge standard">POPULAR</span>
-                    <h3 class="prod-title">STOMP Trencher Attachment for Mini Skid Steer Loader Hydraulic Chain Trencher</h3>
-                    <a href="https://www.ebay.com/itm/227366908745?itmmeta=01KX2FK4356R27M4AEC88T1Q7Y&hash=item34f01fb349:g:yo8AAeSw9f1qHPY8" class="view-details-btn" target="_blank">View Details</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="prod-img-box">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/14.webp" alt="Skoop Industrial Lifter">
-                </div>
-                <div class="prod-info">
-                    <span class="status-badge standard">POPULAR</span>
-                    <h3 class="prod-title">Stump Grinder Skid Steer Loader Attachment for TYPHON STOMP skidsteer Generic</h3>
-                    <a href="https://www.ebay.com/itm/186296028506?itmmeta=01KX2FKNC8T7WHSXXAR1PGC65T&hash=item2b601bcd5a:g:HOoAAOSwm-BoQXaw" class="view-details-btn" target="_blank">View Details</a>
                 </div>
             </div>
 
@@ -1675,14 +1050,6 @@ section {
 
             <!-- Card 1: About Us -->
             <div class="info-card">
-                <div class="info-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                        <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                        <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                    </svg>
-                </div>
                 <h3 class="info-card-title">About Us</h3>
                 <p class="info-card-body">
                     <strong class="text-highlight">MiniExca supplies high-quality</strong> aftermarket parts for all mini excavator brands, including hydraulic hose adapters, attachment pins, final drives, undercarriage parts, and hydraulic pumps. We provide reliable products, competitive pricing, and fast shipping for contractors and construction businesses.
@@ -1691,14 +1058,6 @@ section {
 
             <!-- Card 2: Shipping -->
             <div class="info-card">
-                <div class="info-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="1" y="3" width="15" height="13"></rect>
-                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
-                    </svg>
-                </div>
                 <h3 class="info-card-title">Shipping</h3>
                 <p class="info-card-body">
                     <strong class="text-highlight">All taxes, documentation, and EPA fees</strong> are included with no import paperwork required. FREE U.S. shipping (48 states) or warehouse pickup available. Orders ship in 7-10 business days with delivery in 7-14 days.
@@ -1707,11 +1066,6 @@ section {
 
             <!-- Card 3: Supporter -->
             <div class="info-card">
-                <div class="info-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                </div>
                 <h3 class="info-card-title">Supporter</h3>
                 <p class="info-card-body">
                     <strong class="text-highlight">Speak with our experts</strong> for fast, reliable support-from choosing the right equipment and understanding specs to order updates and after-sales service. We're here to ensure a smooth experience from inquiry to long-term use.
@@ -1720,12 +1074,6 @@ section {
 
             <!-- Card 4: High Performance -->
             <div class="info-card">
-                <div class="info-icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="8" r="7"></circle>
-                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                    </svg>
-                </div>
                 <h3 class="info-card-title">High Performance</h3>
                 <p class="info-card-body">
                     <strong class="text-highlight">Buy heavy machinery online</strong> from MiniExca with peace of mind, backed by our experienced technical team. All machines include a 1-year warranty with free spare parts coverage (excluding labor and shipping costs).
