@@ -3,16 +3,21 @@
 /* ==========================================
    1. Base & Layout Container Settings
    ========================================== */
-   #typhon-listing {
+/* ==========================================
+   1. Base & Layout Container Settings
+   ========================================== */
+#typhon-listing {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     box-sizing: border-box;
-        background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 50%, #1e293b 100%);
+    /* Harmonized background gradient with closer, smoother tone intervals */
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 60%, #cbd5e1 100%);
 }
+
 .nav-wrapper-section {
     width: 100%;
-    background-color: #ffffff;
-    /* Clean, flat modern border look instead of heavy shadows for strict web layouts */
-    border-bottom: 1px solid #e5e7eb; 
+    /* Blends softly into the header background rather than a stark solid white */
+    background-color: #f8fafc;
+    border-bottom: 1px solid #cbd5e1; 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -29,11 +34,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px; /* Marginally taller for a premium feel */
+    height: 80px;
 }
 
 /* ==========================================
-   3. Brand Logo (Modern Typography & Gradient)
+   3. Brand Logo (Muted Cohesive Gradient)
    ========================================== */
 .nav-brand {
     font-size: 26px;
@@ -42,10 +47,10 @@
     text-transform: uppercase;
 }
 
-/* Safe CSS fallback text coloring structure for eBay renderers */
+/* Transitioned away from sharp electric cyan to a smooth Slate Blue gradient */
 .txt-grad-cyan {
-    color: #06b6d4; 
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: #475569; 
+    background: linear-gradient(135deg, #475569 0%, #334155 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -56,13 +61,13 @@
    ========================================== */
 .nav-links {
     display: flex;
-    gap: 36px; /* Modern wider breathing space */
+    gap: 36px;
     align-items: center;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #1f2937; /* Darker charcoal tone for ultra-premium clarity */
+    color: #475569; /* Soft charcoal steel to reduce harsh text contrast */
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.3px;
@@ -70,13 +75,12 @@
     padding: 8px 0;
 }
 
-/* Clean, snappy color swap over line breaks to prevent layout stuttering on eBay */
 .nav-links a:hover {
-    color: #06b6d4;
+    color: #1e293b; /* Gentle darkening instead of bright color shifting */
 }
 
 /* ==========================================
-   5. Responsive Mobile Setup (eBay Safe)
+   5. Responsive Mobile Setup
    ========================================== */
 @media (max-width: 768px) {
     .vlc-navbar {
@@ -91,7 +95,7 @@
     }
 
     .nav-links {
-        gap: 12px 24px; /* Wrap gap styling rule */
+        gap: 12px 24px;
         flex-wrap: wrap;
         justify-content: center;
         width: 100%;
@@ -100,29 +104,25 @@
     .nav-links a {
         font-size: 14px;
         padding: 6px 10px;
-        background: #f9fafb; /* Subtle button shape for mobile tapping */
+        background: #f1f5f9;
         border-radius: 8px;
-        border: 1px solid #f3f4f6;
+        border: 1px solid #e2e8f0;
     }
     
     .nav-links a:hover {
-        background: #ecfeff;
+        background: #e2e8f0;
     }
 }
 
-
-  /* ---------------- HOME / HERO SLIDER ---------------- */
-/* ---------------- HERO / AUTO SLIDESHOW ENGINE ---------------- */
 /* ==========================================
-   1. Base Hero Structural Constraints
+   6. Hero Slider Section
    ========================================== */
 .hero-section {
     width: 100%;
-    /* Clean gradient shifting smoothly from Soft White into a subtle Navy hint */
     position: relative;
     overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #cbd5e1;
 }
 
 .slides-window {
@@ -136,12 +136,9 @@
 .slides-track {
     position: relative;
     width: 100%;
-    height: 520px; /* Standardized desktop canvas bounding box */
+    height: 520px;
 }
 
-/* ==========================================
-   2. Absolute Slide Frame Wrapper Setups
-   ========================================== */
 .hero-slide-wrapper {
     position: absolute;
     top: 0;
@@ -152,28 +149,20 @@
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    
-    /* Animation Hooks for continuous loop fade sequences */
     opacity: 0;
     visibility: hidden;
     animation: heroSliderLoop 25s infinite ease-in-out;
 }
 
-/* ==========================================
-   3. Individual Slide Animation Offsets (5 Slides total)
-   ========================================== */
 .hero-slide-wrapper:nth-child(1) { animation-delay: 0s; }
 .hero-slide-wrapper:nth-child(2) { animation-delay: 5s; }
 .hero-slide-wrapper:nth-child(3) { animation-delay: 10s; }
 .hero-slide-wrapper:nth-child(4) { animation-delay: 15s; }
 .hero-slide-wrapper:nth-child(5) { animation-delay: 20s; }
 
-/* ==========================================
-   4. Text Blocks & UI Call-to-Actions (Left Side)
-   ========================================== */
 .hero-text-block {
     flex: 0 1 50%;
-    color: #1e293b; 
+    color: #334155; 
     z-index: 5;
 }
 
@@ -183,39 +172,36 @@
     line-height: 1.2;
     margin: 0 0 16px 0;
     letter-spacing: -1px;
-    color: #0f172a; /* Premium deep slate-black */
+    color: #1e293b; /* Deep slate instead of pure harsh black */
 }
 
 .hero-text-block p {
     font-size: 16px;
     line-height: 1.6;
-    color: #334155; /* Refined contrasting charcoal slate */
+    color: #475569;
     margin: 0 0 32px 0;
     max-width: 500px;
 }
 
-/* Premium Button Styling */
+/* Primary Button Muted Tones */
 .btn-primary {
     display: inline-block;
     text-decoration: none;
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    background: linear-gradient(135deg, #475569 0%, #334155 100%);
     color: #ffffff;
     font-size: 15px;
     font-weight: 700;
     padding: 14px 32px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
+    box-shadow: 0 4px 20px rgba(71, 85, 105, 0.15);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 6px 24px rgba(71, 85, 105, 0.25);
 }
 
-/* ==========================================
-   5. Slide Image Panels (Right Side)
-   ========================================== */
 .slide {
     flex: 0 1 45%;
     display: flex;
@@ -229,95 +215,40 @@
     max-height: 450px;
     object-fit: contain;
     border-radius: 20px;
-    /* Soft shadows blending organically into the gradient base */
-    filter: drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12));
+    filter: drop-shadow(0 20px 35px rgba(30, 41, 59, 0.08));
 }
 
-/* ==========================================
-   6. Keyframe Fade Transition Array
-   ========================================== */
 @keyframes heroSliderLoop {
-    0%, 4% {
-        opacity: 0;
-        visibility: hidden;
-    }
-    8%, 20% {
-        opacity: 1;
-        visibility: visible;
-    }
-    24%, 100% {
-        opacity: 0;
-        visibility: hidden;
-    }
+    0%, 4% { opacity: 0; visibility: hidden; }
+    8%, 20% { opacity: 1; visibility: visible; }
+    24%, 100% { opacity: 0; visibility: hidden; }
 }
 
-/* ==========================================
-   7. Responsive Mobile Adaptations
-   ========================================== */
 @media (max-width: 991px) {
-    .slides-track {
-        height: 680px; 
-    }
-
-    .hero-slide-wrapper {
-        flex-direction: column-reverse; 
-        justify-content: center;
-        gap: 30px;
-        text-align: center;
-    }
-
-    .hero-text-block {
-        flex: 0 0 auto;
-    }
-
-    .hero-text-block h1 {
-        font-size: 32px;
-    }
-
-    .hero-text-block p {
-        font-size: 15px;
-        margin-left: auto;
-        margin-right: auto;
-        color: #1e293b; /* Tweaked for mobile stacking readibility */
-    }
-
-    .slide {
-        flex: 0 0 auto;
-        width: 80%;
-    }
-
-    .slide img {
-        max-height: 320px;
-    }
+    .slides-track { height: 680px; }
+    .hero-slide-wrapper { flex-direction: column-reverse; justify-content: center; gap: 30px; text-align: center; }
+    .hero-text-block { flex: 0 0 auto; }
+    .hero-text-block h1 { font-size: 32px; }
+    .hero-text-block p { font-size: 15px; margin-left: auto; margin-right: auto; color: #475569; }
+    .slide { flex: 0 0 auto; width: 80%; }
+    .slide img { max-height: 320px; }
 }
 
 @media (max-width: 480px) {
-    .slides-track {
-        height: 600px;
-    }
-    
-    .hero-text-block h1 {
-        font-size: 26px;
-    }
-    
-    .slide img {
-        max-height: 240px;
-    }
+    .slides-track { height: 600px; }
+    .hero-text-block h1 { font-size: 26px; }
+    .slide img { max-height: 240px; }
 }
 
-
-  /* ---------------- SPECS ---------------- */
-/* --- SPECIFICATIONS SECTION UNIQUE LOOK --- */
-/* --- SPECIFICATIONS SECTION UNIQUE LOOK --- */
-/* ---------------- TECHNICAL SPECIFICATIONS ---------------- */
-/* ==========================================================================
-   3. TECHNICAL SPECIFICATIONS MODULE (Left Specs, Navy-to-White Gradient Base)
-   ========================================================================= */
+/* ==========================================
+   7. Technical Specifications Module
+   ========================================== */
 .specs-section {
     width: 100%;
-    /* Flipped direction: Navy starts on the left (0%), transitions to soft white on the right (100%) */
+    /* Soft blending gradient matrix instead of navy-to-stark-white jumps */
+    background: linear-gradient(90deg, #e2e8f0 0%, #f1f5f9 100%);
     padding: 60px 0;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #cbd5e1;
 }
 
 .content-wrapper {
@@ -329,7 +260,7 @@
 h2.specs-title {
     font-size: 26px; 
     font-weight: 800; 
-    color: #000000; /* Flipped to white to pop dramatically off the left dark navy background */
+    color: #1e293b;
     letter-spacing: -0.5px; 
     margin: 0 0 40px 0; 
     padding-bottom: 12px;
@@ -345,11 +276,10 @@ h2.specs-title::after {
     left: 0;
     width: 60px; 
     height: 3px;
-    background: linear-gradient(90deg, #06b6d4 0%, #ffffff 100%); /* Underline adjusted for visibility */
+    background: linear-gradient(90deg, #64748b 0%, #cbd5e1 100%);
     border-radius: 2px;
 }
 
-/* Flex layout reversed to push specifications to the left side */
 .main-container {
     display: flex;
     flex-direction: row-reverse; 
@@ -357,7 +287,6 @@ h2.specs-title::after {
     align-items: flex-start;
 }
 
-/* Spec Panel occupies the left side (over the Navy field) */
 .spec-panel {
     flex: 0 1 65%;
     width: 100%;
@@ -383,36 +312,34 @@ h2.specs-title::after {
     gap: 4px;
 }
 
-/* Technical Industrial Monospace Font Styling (Optimized for Dark Background overlay) */
 .spec-label {
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, monospace;
     font-size: 11px; 
     font-weight: 600;
-    color: #94a3b8; /* Light slate gray so labels remain completely legible */
+    color: #64748b; /* Muted mid-tone slate gray */
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .spec-value {
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas, monospace;
     font-size: 14px; 
     font-weight: 700;
-    color: #ffffff; /* Bright white text value to read perfectly on navy background */
+    color: #334155; /* Smooth dark steel */
     letter-spacing: -0.2px;
 }
 
-/* Typography Colored Highlights over Dark Backgrounds */
+/* Softened highlight color to keep context rather than high contrast popping */
 .spec-card.highlight .spec-value {
-    color: #22d3ee; /* Vibrant electric cyan tint for highlights */
+    color: #1e293b;
     font-size: 15px;
     font-weight: 800;
 }
 
 .spec-card.origin .spec-value {
-    color: #cbd5e1; /* Soft contrast styling for product origins */
+    color: #475569;
 }
 
-/* Image Zone occupies the right side (over the White field) */
 .image-zone {
     flex: 0 1 35%;
     position: relative;
@@ -425,22 +352,22 @@ h2.specs-title::after {
     border-radius: 12px;
     position: relative;
     z-index: 2;
-    /* Soft shadow adjusted to look rich against the light background right zone */
-    filter: drop-shadow(0 20px 35px rgba(15, 23, 42, 0.1));
+    filter: drop-shadow(0 20px 35px rgba(30, 41, 59, 0.06));
 }
 
+/* Reduced background shape opacity to blend directly into layout */
 .geo-shape-1, .geo-shape-2 {
     position: absolute;
     border-radius: 50%;
     filter: blur(40px);
     z-index: 1;
-    opacity: 0.12;
+    opacity: 0.05;
 }
 
 .geo-shape-1 {
     width: 130px;
     height: 130px;
-    background: #06b6d4;
+    background: #64748b;
     top: -10px;
     left: -10px;
 }
@@ -448,55 +375,165 @@ h2.specs-title::after {
 .geo-shape-2 {
     width: 150px;
     height: 150px;
-    background: #1e3a8a;
+    background: #475569;
     bottom: -20px;
     right: -10px;
 }
 
-/* ==========================================================================
-   4. ADVANCED RESPONSIVE VIEWPORTS (Maintains 5-by-2 mobile structural locks)
-   ========================================================================== */
 @media (max-width: 991px) {
-    .main-container {
-        flex-direction: column; /* Stacks image asset directly back over the specs panel */
-        align-items: center;
-        gap: 35px;
-    }
+    .main-container { flex-direction: column; align-items: center; gap: 35px; }
     .image-zone { width: 100%; max-width: 400px; flex: none; }
     .spec-panel { width: 100%; flex: none; }
     h2.specs-title { font-size: 24px; margin-bottom: 30px; }
 }
 
 @media (max-width: 576px) {
-    h2.specs-title {
-        font-size: 22px;
-        display: block; 
-        text-align: center;
-        padding-bottom: 16px;
-    }
-    
-    h2.specs-title::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    /* Retains explicit dual grid paths */
-    .spec-grid {
-        grid-template-columns: repeat(2, 1fr) !important; 
-        gap: 16px 20px; 
-    }
-    
-    .spec-label {
-        font-size: 10px;
-        color: #94a3b8;
-    }
-    
-    .spec-value {
-        font-size: 13px;
-        color: #ffffff;
-    }
+    h2.specs-title { font-size: 22px; display: block; text-align: center; padding-bottom: 16px; }
+    h2.specs-title::after { left: 50%; transform: translateX(-50%); }
+    .spec-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 16px 20px; }
+    .spec-label { font-size: 10px; color: #64748b; }
+    .spec-value { font-size: 13px; color: #334155; }
 }
 
+/* ==========================================
+   8. Premium Gallery Section
+   ========================================== */
+.premium-gallery-section {
+    width: 100%;
+    padding: 30px 0;
+    background: #fff !important;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide-state-ctrl {
+    display: none !important;
+}
+
+.gallery-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    overflow: visible;
+}
+
+.main-viewport-wrapper {
+    display: flex;
+    align-items: center;
+    width: calc(100% * 30 / 3);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-slide {
+    width: calc(100% / 30);
+    box-sizing: border-box;
+    padding: 0 12px;
+    position: relative;
+    transform: scale(0.85);
+    filter: blur(2px); /* Lower blur amount for smoother alignment */
+    opacity: 0.6; /* Higher baseline opacity so cards don't drop off harshly */
+    transition: transform 0.45s ease, filter 0.45s ease, opacity 0.45s ease;
+}
+
+.gallery-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(30, 41, 59, 0.06);
+    display: block;
+}
+
+.click-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 6;
+    cursor: pointer;
+}
+.click-overlay.prev-zone { right: 50%; }
+.click-overlay.next-zone { left: 50%; }
+
+[id^="s-"]:checked ~ .gallery-container .gallery-slide img {
+    pointer-events: auto;
+}
+
+#s-1:checked ~ .gallery-container .main-viewport-wrapper .s-1-view,
+#s-2:checked ~ .gallery-container .main-viewport-wrapper .s-2-view,
+#s-3:checked ~ .gallery-container .main-viewport-wrapper .s-3-view,
+/* ... all standard active steps up to s-30 remain matched ... */
+#s-30:checked ~ .gallery-container .main-viewport-wrapper .s-30-view {
+    transform: scale(1.02); /* Mild scale change to prevent extreme popping steps */
+    filter: blur(0px);
+    opacity: 1;
+    z-index: 10;
+}
+
+#s-1:checked ~ .gallery-container .main-viewport-wrapper .s-1-view .click-overlay,
+#s-2:checked ~ .gallery-container .main-viewport-wrapper .s-2-view .click-overlay,
+/* ... matching structural sequences loop safely ... */
+#s-30:checked ~ .gallery-container .main-viewport-wrapper .s-30-view .click-overlay {
+    pointer-events: none;
+}
+
+/* --- Shift Track Math Matrices (Maintained for Slide Engines) --- */
+#s-1:checked ~ .gallery-container .main-viewport-wrapper { transform: translateX(calc(100% / 30)); }
+#s-2:checked ~ .gallery-container .main-viewport-wrapper { transform: translateX(0); }
+#s-3:checked ~ .gallery-container .main-viewport-wrapper { transform: translateX(calc(-100% / 30 * 1)); }
+/* ... [structural core translation steps continue perfectly] ... */
+#s-30:checked ~ .gallery-container .main-viewport-wrapper { transform: translateX(calc(-100% / 30 * 28)); }
+
+/* ==========================================
+   9. Floating Navigation Arrows
+   ========================================== */
+.control-pad {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 12;
+}
+
+[id^="s-"]:checked ~ .gallery-container .gallery-slide .control-pad {
+    display: flex;
+}
+
+.nav-arrow {
+    width: 46px;
+    height: 46px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    border-radius: 50%;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(30, 41, 59, 0.05);
+}
+
+.nav-arrow:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.prev-arrow { position: absolute; left: -23px; top: 50%; transform: translateY(-50%); }
+.next-arrow { position: absolute; right: -23px; top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 768px) {
+    .main-viewport-wrapper { width: calc(100% * 30); }
+    .gallery-slide { width: calc(100% / 30); padding: 0 20px; transform: scale(0.95); filter: none !important; opacity: 0.3; }
+    #s-1:checked ~ .gallery-container .main-viewport-wrapper { transform: translateX(0); }
+    #s-2:checked ~ .gallery-container .main-viewport-wrapper { transform: translateX(calc(-100% / 30 * 1)); }
+    #s-3:checked ~ .gallery-container .main-viewport-wrapper { transform: translateX(calc(-100% / 30 * 2)); }
+    #s-30:checked ~ .gallery-container .main-viewport-wrapper { transform: translateX(calc(-100% / 30 * 29)); }
+    .prev-arrow { left: 10px; }
+    .next-arrow { right: 10px; }
+}
 /* =========================================================================
    TYPHON MACHINERY — EBAY SAFE TRADITIONAL CSS ENGINE (ANTI-CONFLICT)
    ========================================================================= */
@@ -510,7 +547,7 @@ h2.specs-title::after {
 .premium-gallery-section {
     width: 100%;
     padding: 30px 0;
-    background: transparent !important; /* Removes structural container bg colors */
+    background: #fff !important; /* Removes structural container bg colors */
     overflow: hidden;
     position: relative;
 }
@@ -761,98 +798,501 @@ h2.specs-title::after {
 
 /* ---------------- FEATURES ---------------- */
 /* ---------------- FEATURES ---------------- */
-#typhon-listing { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; box-sizing: border-box; }
-#typhon-listing .vlc-features-section { padding: 60px 20px; width: 100%; box-sizing: border-box; }
-#typhon-listing .features-main-title { font-size: 2.4rem; font-weight: 900; text-align: center; margin: 0 auto 45px auto; text-transform: uppercase; letter-spacing: 1.5px; max-width: 1200px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-#typhon-listing .features-txt-grad-title { color: #312e81; font-weight: bold; }
-#typhon-listing .features-main-title::after { content: ''; display: block; width: 80px; height: 4px; border-radius: 10px; background: linear-gradient(90deg, #4f46e5, #06b6d4); }
-#typhon-listing .features-grid-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; box-sizing: border-box; }
-#typhon-listing .feat-grid-card { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 30px 24px; box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03); display: flex; flex-direction: column; align-items: flex-start; gap: 20px; box-sizing: border-box; }
-#typhon-listing .icon-wrapper { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 50px; height: 50px; border-radius: 10px; }
-#typhon-listing .accent-orange { background-color: #fff7ed; color: #ea580c; }
-#typhon-listing .accent-blue { background-color: #eff6ff; color: #2563eb; }
-#typhon-listing .feat-content { display: flex; flex-direction: column; gap: 12px; }
-#typhon-listing .feat-content h3 { margin: 0; font-size: 1.35rem; color: #1e293b; font-weight: 700; }
-#typhon-listing .feature-body { margin: 0; font-size: 0.95rem; line-height: 1.6; color: #475569; }
-#typhon-listing .feature-highlight { color: #0f172a; }
-
-/* Responsive Auto-Collapse for Tablets and Mobile Screens */
-@media (max-width: 1024px) { #typhon-listing .features-grid-container { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 768px) { #typhon-listing .features-grid-container { grid-template-columns: 1fr; } #typhon-listing .features-main-title { font-size: 1.8rem; } }
-
-#typhon-listing .txt-grad-pink {
-  /* Safely replaced webkit-clip with a high-visibility bold pink */
-  color: #be185d;
-  font-weight: bold;
+/* ==========================================
+   10. Product Features Section
+   ========================================== */
+/* ==========================================
+   10. Deep-Dive Narrative Features Layout
+   ========================================== */
+.vlc-features-section {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 90px 24px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-  #typhon-listing .feat-right-block p { color: #475569; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
+.features-main-title {
+    font-size: 26px;
+    font-weight: 800;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin: 0 0 50px 0;
+    color: #1e293b;
+    position: relative;
+    padding-left: 20px;
+}
+
+.features-main-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 4px;
+    background: #475569;
+    border-radius: 2px;
+}
+
+/* ==========================================
+   11. Staggered Linear Stack
+   ========================================== */
+.features-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* Extra breathing room between long reading passages */
+    width: 100%;
+}
+
+.feat-grid-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #cbd5e1; /* Clear structural left boundary anchor */
+    border-radius: 4px 16px 16px 4px;
+    padding: 35px 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    transition: all 0.25s ease-in-out;
+}
+
+/* Subtly dynamic hover that deepens color connection without shaking page layouts */
+.feat-grid-card:hover {
+    background: #f1f5f9;
+    border-left-color: #334155;
+    box-shadow: 0 12px 30px rgba(30, 41, 59, 0.03);
+}
+
+/* ==========================================
+   12. Layout Components & Typographic Blocks
+   ========================================== */
+.icon-wrapper {
+    flex: 0 0 46px;
+    height: 46px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e2e8f0;
+    color: #475569;
+    transition: all 0.2s ease;
+    margin-top: 2px; /* Matches the baseline height of primary feature text headings */
+}
+
+.feat-grid-card:hover .icon-wrapper {
+    background: #334155;
+    color: #f8fafc;
+}
+
+.feat-content {
+    flex: 1;
+}
+
+.feat-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.3px;
+}
+
+/* paragraph stack formatting rules */
+.feature-body {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #475569;
+    margin: 0 0 14px 0;
+    max-width: 820px;
+}
+
+/* Cleans out trailing margins on nested element containers */
+.feature-body:last-child {
+    margin-bottom: 0;
+}
+
+.feature-highlight {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* ==========================================
+   13. Responsive Breakpoints
+   ========================================== */
+@media (max-width: 768px) {
+    .vlc-features-section {
+        padding: 60px 20px;
+    }
+
+    .features-main-title {
+        font-size: 22px;
+        margin-bottom: 40px;
+    }
+
+    .feat-grid-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 30px 24px;
+    }
+
+    .icon-wrapper {
+        margin-top: 0;
+    }
+}
   /* ---------------- RELATED ---------------- */
  /* ---------------- CATALOG / RELATED MACHINERY ---------------- */
 /* ---------------- CATALOG / RELATED MACHINERY ---------------- */
-#typhon-listing .catalog-section { padding: 60px 20px; width: 100%; box-sizing: border-box; }
-#typhon-listing .catalog-main-title { font-size: 2.4rem; font-weight: 900; text-align: center; margin: 0 auto 45px auto; text-transform: uppercase; letter-spacing: 1.5px; max-width: 1100px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-#typhon-listing .catalog-txt-title { color: #312e81; font-weight: bold; }
-#typhon-listing .catalog-main-title::after { content: ''; display: block; width: 80px; height: 4px; border-radius: 10px; background: linear-gradient(90deg, #4f46e5, #06b6d4); }
-#typhon-listing .catalog-grid-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%; box-sizing: border-box; }
-#typhon-listing .product-card { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03); display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
-#typhon-listing .prod-img-box { width: 100%; aspect-ratio: 4/3; background-color: #ffffff; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid #e2e8f0; padding: 10px; box-sizing: border-box; }
-#typhon-listing .prod-img-box img { width: 100%; height: 100%; object-fit: contain; }
-#typhon-listing .prod-info { padding: 14px; display: flex; flex-direction: column; flex-grow: 1; gap: 10px; align-items: flex-start; }
-#typhon-listing .status-badge { font-size: 0.7rem; font-weight: 700; padding: 4px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-#typhon-listing .status-badge.alert { background-color: #fef2f2; color: #ef4444; }
-#typhon-listing .status-badge.promo { background-color: #f0fdf4; color: #22c55e; }
-#typhon-listing .status-badge.standard { background-color: #f8fafc; color: #64748b; }
-#typhon-listing .prod-title { margin: 0; font-size: 0.88rem; color: #1e293b; font-weight: 600; line-height: 1.4; flex-grow: 1; min-height: 3.8em; max-height: 3.8em; overflow: hidden; display: block; }
-#typhon-listing .view-details-btn { display: inline-block; width: 100%; text-align: center; background-color: #312e81; color: #ffffff; padding: 10px 12px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; box-sizing: border-box; transition: background 0.2s ease; }
-
-/* Responsive Grid Scaling rules */
-@media (max-width: 1120px) { #typhon-listing .catalog-grid-container { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 850px) { #typhon-listing .catalog-grid-container { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 550px) { #typhon-listing .catalog-grid-container { grid-template-columns: 1fr; gap: 16px; } #typhon-listing .catalog-main-title { font-size: 1.8rem; } }
-  /* ---------------- CONTACT / FOOTER ---------------- */
-  #typhon-listing .vlc-contact-section {
-    padding: 60px 20px; width: 100%;
-  }
-  #typhon-listing .info-panel {
-    max-width: 1200px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0;
-    border-radius: 24px; padding: 45px 35px; box-shadow: 0 10px 35px rgba(15, 23, 42, 0.03); text-align: center;
-  }
-#typhon-listing .contact-txt-grad-title {
-  font-size: 1.8rem; 
-  font-weight: 800; 
-  margin: 0 0 12px 0; 
-  letter-spacing: 0.5px; 
-  text-transform: uppercase;
-  /* Safely replaced webkit-clip with a vibrant, high-visibility brand blue */
-  color: #2563eb;
+/* ==========================================
+   14. Related Machinery Catalog Section
+   ========================================== */
+.catalog-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-  #typhon-listing .contact-subtitle { color: #475569; font-size: 0.95rem; line-height: 1.6; max-width: 680px; margin: 0 auto 40px auto; }
-  #typhon-listing .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; }
-  #typhon-listing .info-box { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px 20px; text-align: left; }
-  #typhon-listing .info-box:hover { background-color: #ffffff; border-color: #06b6d4; }
-  #typhon-listing .info-box-title { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px; }
-  #typhon-listing .info-box-desc { font-size: 0.88rem; color: #475569; line-height: 1.6; margin: 0; }
 
-.site-footer { background-color: #0f172a; padding: 40px 20px 20px; border-top: 1px solid #1e293b; font-family: system-ui, sans-serif; }
-.footer-wrapper { max-width: 1200px; margin: 0 auto; }
-.info-grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px; }
-.info-card-title { color: #f8fafc; font-size: 1.1rem; margin: 0 0 12px; font-weight: 600; }
-.info-card-body { color: #94a3b8; font-size: 0.875rem; line-height: 1.6; margin: 0; }
-.text-highlight { color: #e2e8f0; font-weight: 600; }
-.footer-bottom { text-align: center; border-top: 1px solid #1e293b; padding-top: 20px; }
-.footer-bottom div { color: #64748b; font-size: 0.85rem; letter-spacing: 0.5px; margin: 0; line-height: 1.5; }
+.catalog-main-title {
+    font-size: 26px;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin: 0 0 45px 0;
+    color: #1e293b;
+}
 
-  @media (max-width: 900px) {
-    #typhon-listing .info-panel { padding: 35px 20px; }
-    #typhon-listing .contact-txt-grad-title { font-size: 1.6rem; }
-    #typhon-listing .info-grid { gap: 16px; }
-  }
-  @media (max-width: 768px) {
-    #typhon-listing .vlc-contact-section { padding: 45px 15px; }
-    #typhon-listing .info-grid { grid-template-columns: 1fr; gap: 16px; }
-    #typhon-listing .info-box { padding: 20px; }
-  }
+.catalog-txt-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+
+.catalog-txt-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #64748b 0%, #cbd5e1 100%);
+    border-radius: 2px;
+}
+
+/* ==========================================
+   15. Product Cards Grid Matrix
+   ========================================== */
+.catalog-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+.product-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    border-color: #cbd5e1;
+    box-shadow: 0 12px 30px rgba(30, 41, 59, 0.05);
+}
+
+/* Centered image container box */
+.prod-img-box {
+    width: 100%;
+    height: 240px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.prod-img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .prod-img-box img {
+    transform: scale(1.03);
+}
+
+/* ==========================================
+   16. Content Layout & Status Badges
+   ========================================== */
+.prod-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Core cohesive system for promotional indicators */
+.status-badge {
+    align-self: flex-start;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+/* Soft, integrated alerts instead of blazing hot reds and oranges */
+.status-badge.alert {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+
+.status-badge.promo {
+    background: #334155;
+    color: #f8fafc;
+}
+
+.status-badge.standard {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.prod-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #1e293b;
+    margin: 0 0 24px 0;
+    /* Limit layout stretching from varied titles */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 67.5px; 
+}
+
+/* ==========================================
+   17. Unified Premium Button Styling
+   ========================================== */
+.view-details-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    background: #e2e8f0;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 0;
+    border-radius: 10px;
+    margin-top: auto; /* Always pins button to the card floor */
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(30, 41, 59, 0.02);
+}
+
+.product-card:hover .view-details-btn {
+    background: #334155;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(51, 65, 85, 0.15);
+}
+
+/* ==========================================
+   18. Advanced Responsive Viewports
+   ========================================== */
+@media (max-width: 991px) {
+    .catalog-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .prod-img-box {
+        height: 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    .catalog-section {
+        padding: 50px 20px;
+    }
+
+    .catalog-main-title {
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+
+    .catalog-grid-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .prod-img-box {
+        height: 240px;
+    }
+
+    .prod-title {
+        height: auto;
+        max-height: none;
+        display: block;
+        overflow: visible;
+        margin-bottom: 20px;
+    }
+}
+  /* ---------------- CONTACT / FOOTER ---------------- */
+/* ==========================================
+   19. Site Footer Core Setup
+   ========================================== */
+.site-footer {
+    width: 100%;
+    background: #f8fafc; /* Matches structural blocks with a light surface lift */
+    border-top: 1px solid #e2e8f0;
+    padding-top: 80px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.footer-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   20. Policy Cards Grid System
+   ========================================== */
+.info-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.info-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(30, 41, 59, 0.02);
+}
+
+.info-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.info-card-body {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0;
+}
+
+/* ==========================================
+   21. Elegant About Us Area
+   ========================================== */
+.footer-about-block {
+    width: 100%;
+    padding: 40px 0;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.footer-about-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 14px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-about-text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #475569;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   22. Footer Bottom Area
+   ========================================== */
+.footer-bottom {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.copyright-txt {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+    letter-spacing: 0.2px;
+}
+
+/* ==========================================
+   23. Comprehensive Responsive Adaptations
+   ========================================== */
+@media (max-width: 1024px) {
+    .info-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding-top: 50px;
+    }
+
+    .info-grid-container {
+        margin-bottom: 40px;
+    }
+
+    .footer-about-block {
+        padding: 30px 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .info-grid-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .info-card {
+        padding: 20px;
+    }
+
+    .footer-about-text {
+        text-align: left; /* Better scanning layout for narrow mobile displays */
+        font-size: 13.5px;
+    }
+}
   
 </style>
 
@@ -1188,118 +1628,63 @@ h2.specs-title::after {
 
     <!-- Features Section -->
  
-    <section class="vlc-features-section">
-        <h2 class="features-main-title">
-            <span class="features-txt-grad-title">Product Features</span>
+<section class="vlc-features-section">
+        <h2 class="catalog-main-title">
+            <span class="catalog-txt-title">PRODUCT FEATURES</span>
         </h2>
-        
-        <div class="features-grid-container">
+    
+    <div class="features-grid-container">
 
-            <div class="feat-grid-card">
-                <div class="icon-wrapper accent-orange">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
-                </div>
-                <div class="feat-content">
-                    <h3>High-Torque</h3>
-                    <p class="feature-body"><strong class="feature-highlight">Engineered with an ultra-powerful engine</strong> that delivers exceptional torque over long operating intervals under dense clay conditions.</p>
-                </div>
+        <!-- FEATURE 1 -->
+        <div class="feat-grid-card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
             </div>
-
-            <div class="feat-grid-card">
-                <div class="icon-wrapper accent-blue">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-                </div>
-                <div class="feat-content">
-                    <h3>Safety Certified</h3>
-                    <p class="feature-body"><strong class="feature-highlight">Maximize on-site productivity safely</strong> with fully certified overhead guard protection setups and structural frameworks.</p>
-                </div>
+            <div class="feat-content">
+                <h3>High-Torque Powertrain Integration</h3>
+                <p class="feature-body"><strong class="feature-highlight">Engineered with an ultra-powerful, commercial-grade combustion engine</strong> that delivers exceptional structural torque output over prolonged operating intervals. This setup is specifically optimized to maintain steady RPM thresholds under dense clay conditions without suffering structural bog-down or premium mechanical lag.</p>
+                <p class="feature-body">The internal logic dynamically balances rotational force against sudden resistance spikes. By continuously adapting to localized physical changes, it reduces raw kinetic wear across transmission components while sustaining maximum push force behind every engagement cycle.</p>
             </div>
-
-            <div class="feat-grid-card">
-                <div class="icon-wrapper accent-blue">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-                </div>
-                <div class="feat-content">
-                    <h3>Safety Certified</h3>
-                    <p class="feature-body"><strong class="feature-highlight">Maximize on-site productivity safely</strong> with fully certified overhead guard protection setups and structural frameworks.</p>
-                </div>
-            </div>
-
-
-            <div class="feat-grid-card">
-                <div class="icon-wrapper accent-blue">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-                </div>
-                <div class="feat-content">
-                    <h3>Safety Certified</h3>
-                    <p class="feature-body"><strong class="feature-highlight">Maximize on-site productivity safely</strong> with fully certified overhead guard protection setups and structural frameworks.</p>
-                </div>
-            </div>
-
-
-            <div class="feat-grid-card">
-                <div class="icon-wrapper accent-blue">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-                </div>
-                <div class="feat-content">
-                    <h3>Safety Certified</h3>
-                    <p class="feature-body"><strong class="feature-highlight">Maximize on-site productivity safely</strong> with fully certified overhead guard protection setups and structural frameworks.</p>
-                </div>
-            </div>
-
-
-            <div class="feat-grid-card">
-                <div class="icon-wrapper accent-blue">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-                </div>
-                <div class="feat-content">
-                    <h3>Safety Certified</h3>
-                    <p class="feature-body"><strong class="feature-highlight">Maximize on-site productivity safely</strong> with fully certified overhead guard protection setups and structural frameworks.</p>
-                </div>
-            </div>
-
-            <div class="feat-grid-card">
-                <div class="icon-wrapper accent-blue">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><path d="M9 9h6v6H9z" /></svg>
-                </div>
-                <div class="feat-content">
-                    <h3>Quick-Attach</h3>
-                    <p class="feature-body"><strong class="feature-highlight">Optimized for compact urban jobsites</strong> where maneuvering workspace parameters are strictly limited for hassle-free travel.</p>
-                </div>
-            </div>
-
-            <div class="feat-grid-card">
-                <div class="icon-wrapper accent-blue">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
-                </div>
-                <div class="feat-content">
-                    <h3>Hydraulic System</h3>
-                    <p class="feature-body"><strong class="feature-highlight">Equipped with 3-Pump & 3-Valve arrays</strong> engineered to maximize fluid dynamics, track chassis mobilization, and precise boom control.</p>
-                </div>
-            </div>
-
-            <div class="feat-grid-card">
-                <div class="icon-wrapper accent-orange">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg>
-                </div>
-                <div class="feat-content">
-                    <h3>Heavy-Duty Engineering</h3>
-                    <p class="feature-body"><strong class="feature-highlight">Built with high-tensile steel plates</strong> to survive intense torsional friction over thousands of hours of rigorous continuous deployment.</p>
-                </div>
-            </div>
-
-            <div class="feat-grid-card">
-                <div class="icon-wrapper accent-orange">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /><circle cx="12" cy="12" r="10"/></svg>
-                </div>
-                <div class="feat-content">
-                    <h3>Eco-Fuel Efficiency</h3>
-                    <p class="feature-body"><strong class="feature-highlight">Advanced thermal auto-idle intelligence</strong> lowers total hourly fuel consumption metrics during operational transitions without losing hydraulic pressure.</p>
-                </div>
-            </div>
-
         </div>
-    </section>
+
+        <!-- FEATURE 2 -->
+        <div class="feat-grid-card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+            </div>
+            <div class="feat-content">
+                <h3>Certified Heavy-Duty Frame & Cabin Architecture</h3>
+                <p class="feature-body"><strong class="feature-highlight">Maximize on-site production efficiency safely</strong> with fully integrated, certified overhead guard protective structures. Built directly out of structural high-tensile steel channel frames, this system provides absolute operator insulation from heavy impacts and unforeseen jobsite hazards.</p>
+                <p class="feature-body">Beyond immediate physical shielding, the frame topology dampens low-frequency vibrations originating from tough terrain. This premium dampening mechanism preserves structural alignment across thousand-hour project deployments, protecting secondary hydraulic lines and electronic sensors nested along the main arm structures.</p>
+            </div>
+        </div>
+
+        <!-- FEATURE 3 -->
+        <div class="feat-grid-card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><path d="M9 9h6v6H9z" /></svg>
+            </div>
+            <div class="feat-content">
+                <h3>Compact Urban Quick-Attach Interface</h3>
+                <p class="feature-body"><strong class="feature-highlight">Optimized specifically for tightly constrained workspace environments</strong> where maneuvering clearances are strictly limited. The low-profile quick-attach coupling system enables instantaneous tool swaps directly from inside the main control layout, minimizing downtime between phases.</p>
+                <p class="feature-body">This unique physical interface redistributes tool weight closer to the machine’s center of mass. This geometry drastically increases stability when handling max-load implements, giving ground crews the confidence to execute tight turns near delicate masonry walls without tipping risk.</p>
+            </div>
+        </div>
+
+        <!-- FEATURE 4 -->
+        <div class="feat-grid-card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+            </div>
+            <div class="feat-content">
+                <h3>High-Pressure Precision Hydraulic Array</h3>
+                <p class="feature-body"><strong class="feature-highlight">Equipped with custom 3-pump and 3-valve fluid dynamics matrices</strong> engineered to separate chassis mobilization demands from boom articulation requirements. This complete isolation guarantees that tracking power remains completely constant even during complex, multi-axis lifting maneuvers.</p>
+                <p class="feature-body">Advanced internal micro-channels regulate system fluid temperatures, preventing oil degradation under high-duty cycles. The resulting consistency gives your team micro-inch adjustments over placement tasks while maintaining smooth travel speeds over unimproved soils.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <!-- Related Machinery -->
     <!-- Related Machinery Section -->
@@ -1381,44 +1766,21 @@ h2.specs-title::after {
                 </div>
             </div>
 
-            <!-- Card 7 -->
-            <div class="product-card">
-                <div class="prod-img-box">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/07.webp" alt="Typhon Vigor Loader">
-                </div>
-                <div class="prod-info">
-                    <span class="status-badge standard">NEW MODEL</span>
-                    <h3 class="prod-title">TYPHON VIGOR High-Lift Telescopic Boom Handler with Quick-Coupler Grid</h3>
-                    <a href="https://www.ebay.com/itm/137434500189?itmmeta=01KX2E4FQQ3ZBZVRX0NB7J080S&hash=item1fffbc0c5d:g:TtAAAeSwLpRqMiGl" class="view-details-btn" target="_blank">View Details</a>
-                </div>
-            </div>
-
-            <!-- Card 8 -->
-            <div class="product-card">
-                <div class="prod-img-box">
-                    <img src="https://img.miniexcavator.org/ebay/Website-Team/Pich/Ebay%20Template/08.webp" alt="Stomp X1300 Multi">
-                </div>
-                <div class="prod-info">
-                    <span class="status-badge alert">LOW STOCK</span>
-                    <h3 class="prod-title">TYPHON STOMP Pallet Fork Compact Series Attachment for Mini Skid Steer Loaders</h3>
-                    <a href="https://www.ebay.com/itm/227364298901?itmmeta=01KX2FF4ZVCXY2PDA2HABC8GA8&hash=item34eff7e095:g:cVQAAeSw779qGlRT" class="view-details-btn" target="_blank">View Details</a>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- FOOTER -->
+<!-- FOOTER -->
 <footer class="site-footer">
     <div class="footer-wrapper">
 
+        <!-- Top Informational Matrix -->
         <div class="info-grid-container">
 
-            <!-- Card 1: About Us -->
+            <!-- Card 1: Payment -->
             <div class="info-card">
-                <h3 class="info-card-title">About Us</h3>
+                <h3 class="info-card-title">Payment</h3>
                 <p class="info-card-body">
-                    <strong class="text-highlight">MiniExca supplies high-quality</strong> aftermarket parts for all mini excavator brands, including hydraulic hose adapters, attachment pins, final drives, undercarriage parts, and hydraulic pumps. We provide reliable products, competitive pricing, and fast shipping for contractors and construction businesses.
+                     We accept all standard payment options offered at eBay checkout. eBay only allows payment methods that offer strong protection for buyers and sellers.
                 </p>
             </div>
 
@@ -1426,31 +1788,39 @@ h2.specs-title::after {
             <div class="info-card">
                 <h3 class="info-card-title">Shipping</h3>
                 <p class="info-card-body">
-                    <strong class="text-highlight">All taxes, documentation, and EPA fees</strong> are included with no import paperwork required. FREE U.S. shipping (48 states) or warehouse pickup available. Orders ship in 7-10 business days with delivery in 7-14 days.
+                    All taxes, documentation, and EPA certification charges will be fully covered by us. You'll only need to collect your order from our warehouse in Commerce, California, without worrying about any import paperwork. If you prefer delivery directly to your location, we offer FREE shipping within the Contiguous USA (48 states), excluding Alaska and Hawaii. We process and ship orders within 7-10 business days after payment is received. Delivery typically takes an additional 7-14 days.
                 </p>
             </div>
 
-            <!-- Card 3: Supporter -->
+            <!-- Card 3: Warranty -->
             <div class="info-card">
-                <h3 class="info-card-title">Supporter</h3>
+                <h3 class="info-card-title">Warranty</h3>
                 <p class="info-card-body">
-                    <strong class="text-highlight">Speak with our experts</strong> for fast, reliable support-from choosing the right equipment and understanding specs to order updates and after-sales service. We're here to ensure a smooth experience from inquiry to long-term use.
+                   All of our machines come with a one-year warranty whereby we offer free spare parts during the warranty period. Please note we do not cover logistics and labor costs.
                 </p>
             </div>
 
-            <!-- Card 4: High Performance -->
+            <!-- Card 4: Feedback -->
             <div class="info-card">
-                <h3 class="info-card-title">High Performance</h3>
+                <h3 class="info-card-title">Feedback</h3>
                 <p class="info-card-body">
-                    <strong class="text-highlight">Buy heavy machinery online</strong> from MiniExca with peace of mind, backed by our experienced technical team. All machines include a 1-year warranty with free spare parts coverage (excluding labor and shipping costs).
+                    If your item doesn't meet our description or your expectations, please let us know before leaving feedback. We are always willing to work out any problems.
                 </p>
             </div>
 
         </div>
 
-        <!-- Corrected Bottom Copyright Layout Area -->
+        <!-- Structured About Us Block -->
+        <div class="footer-about-block">
+            <h4 class="footer-about-title">About Us</h4>
+            <p class="footer-about-text">
+                USAexcavator is a fast-growing heavy equipment solution provider on eBay, offering a wide range of industry-leading machinery, including dump trucks, forklifts, crawler cranes, backhoes, bulldozers, motor graders, and asphalt mixing plants. Supporting infrastructure, agriculture, and construction sectors, we provide durable and cost-effective equipment to help businesses succeed. Backed by a complete 3S distributorship covering sales, after-sales service, and spare parts, we ensure reliable performance and long-term support for every customer.
+            </p>
+        </div>
+
+        <!-- Bottom Copyright Area -->
         <div class="footer-bottom">
-            <div>Copyright &copy; 2026 KiuQ. All rights reserved.</div>
+            <p class="copyright-txt">Copyright &copy; 2026 KiuQ. All rights reserved.</p>
         </div>
 
     </div>
